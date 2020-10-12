@@ -1,0 +1,1 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\Microsoft.Common.CurrentVersion.targets(1179,5): error MSB3644: 找不到架構 ".NETFramework,Version=v4.5.2" 的參考組件。若要解決此問題，請安裝 SDK 或適用於這個架構版本的目標套件，或將應用程式目標重定為您已經安裝 SDK 或目標套件的架構版本。請注意，這些組件會從全域組件快取 (GAC) 解析，而且會用來取代參考組件。因此，您的組件不一定能正確地將目標設定為您想要的架構。
