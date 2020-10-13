@@ -235,10 +235,25 @@ public:
 	std::vector<OMT::VHandle>                  Extrme_Pt   ;
 
 
+	GLint MeshVAO;
+	GLint MeshVBO;
+
+
+
+
+
+
 	void Render_Solid();
 	void Render_SolidWireframe();
 	void Render_Wireframe();
 	void Render_Point();
+
+
+	void KillEdge();
+
+	void Buffer();
+	void GPURender();
+	void CountdeltaE();
 
 private:
 };

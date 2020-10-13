@@ -576,6 +576,56 @@ void Tri_Mesh::Render_Point()
 	glEnd();
 }
 
+void Tri_Mesh::KillEdge()
+{
+	//find First edge(victim) to kill ((for now))
+	Tri_Mesh::EdgeIter VictimEI = this->edges_begin();
+
+	//Use this edge (form) and (to) point
+	Tri_Mesh::EHandle VictimEh = this->edge_handle(VictimEI->idx());
+	Tri_Mesh::HalfedgeHandle VictimHeH = this->halfedge_handle(VictimEh, 0);
+	Tri_Mesh::VertexHandle VictimFromVertexH = this->from_vertex_handle(VictimHeH);
+	Tri_Mesh::VertexHandle VictimToVertexH = this->to_vertex_handle(VictimHeH);
+	//
+	Tri_Mesh::VertexHandle FirstPointFisrtcommon;
+	Tri_Mesh::VertexHandle FirstPointsecondcommon;
+	Tri_Mesh::VertexHandle secondPointFisrtcommon;
+	Tri_Mesh::VertexHandle secondPointsecondcommon;
+
+	//find two outside point 
+	for (Tri_Mesh::VVIter VV = this->vv_begin(VictimFromVertexH); VV != this->vv_end(VictimFromVertexH); ++VV)
+	{
+
+	}
+	for (Tri_Mesh::VVIter VV = this->vv_begin(VictimToVertexH); VV != this->vv_end(VictimToVertexH); ++VV)
+	{
+
+	}
+
+
+
+}
+
+void Tri_Mesh::Buffer()
+{
+	
+
+
+}
+
+void Tri_Mesh::GPURender()
+{
+}
+
+void Tri_Mesh::CountdeltaE()
+{
+	//OpenMesh::EPropHandleT<Tri_Mesh::Point> Wi;
+
+	
+}
+
+
+
 bool ReadFile(std::string _fileName,Tri_Mesh *_mesh)
 {
 	bool isRead = false;
