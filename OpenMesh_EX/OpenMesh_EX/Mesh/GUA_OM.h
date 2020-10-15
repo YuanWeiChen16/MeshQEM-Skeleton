@@ -6,7 +6,7 @@
 #include <OpenMesh/Core/Mesh/TriMesh_ArrayKernelT.hh>
 #include <OpenMesh/Core/Mesh/PolyMesh_ArrayKernelT.hh>
 #include <OpenMesh/Tools/Utils/getopt.h>
-
+#include <Eigen/Sparse>
 #include <windows.h>
 #include <gl/gl.h>
 #include <gl/glu.h>
@@ -248,7 +248,7 @@ public:
 	void Render_Wireframe();
 	void Render_Point();
 
-
+	void ErrorQuadricsMatrix();
 	void KillEdge();
 
 	void Buffer();

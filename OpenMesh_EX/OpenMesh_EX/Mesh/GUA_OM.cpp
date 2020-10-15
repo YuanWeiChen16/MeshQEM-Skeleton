@@ -576,6 +576,14 @@ void Tri_Mesh::Render_Point()
 	glEnd();
 }
 
+void Tri_Mesh::ErrorQuadricsMatrix()
+{
+	// test Eigen
+	Eigen::Matrix4d Qv;
+	Qv.setZero();
+	std::cout << Qv;
+}
+
 void Tri_Mesh::KillEdge()
 {
 	//find First edge(victim) to kill ((for now))
