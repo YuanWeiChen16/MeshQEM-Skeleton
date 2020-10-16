@@ -578,10 +578,20 @@ void Tri_Mesh::Render_Point()
 
 void Tri_Mesh::ErrorQuadricsMatrix()
 {
-	// test Eigen
-	Eigen::Matrix4d Qv;
-	Qv.setZero();
-	std::cout << Qv;
+	if (this->n_vprops() < 1)
+		this->add_property(QvHandle, QvName);
+	Eigen::Matrix4d a;
+	this->property(QvHandle, vertices_begin()) = a;
+
+	for (VIter vh = vertices_begin(); vh != vertices_end(); ++vh)
+	{
+		for (VFIter vfh = vf_begin(vh); vfh; ++vfh)
+		{
+			OpenMesh::Vec3d fn = calc_face_normal(vfh);
+			Eigen::Vector3d cur_normal(fn[0], fn[1], fn[2]);
+			
+		}
+	}
 }
 
 void Tri_Mesh::KillEdge()

@@ -256,6 +256,8 @@ public:
 	void CountdeltaE();
 
 private:
+	OpenMesh::VPropHandleT<Eigen::Matrix4d> QvHandle;
+	std::string QvName = "Qv";
 };
 
 ///*======================================================================*/
