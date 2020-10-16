@@ -6,10 +6,12 @@
 #include <OpenMesh/Core/Mesh/TriMesh_ArrayKernelT.hh>
 #include <OpenMesh/Core/Mesh/PolyMesh_ArrayKernelT.hh>
 #include <OpenMesh/Tools/Utils/getopt.h>
-#include <Eigen/Sparse>
+#include <Eigen/Dense>
 #include <windows.h>
 #include <gl/gl.h>
 #include <gl/glu.h>
+#include <utility>
+#include <cstdlib>
 
 struct Face_InnerAngle
 {
@@ -237,8 +239,8 @@ public:
 
 	GLint MeshVAO;
 	GLint MeshVBO;
-
-
+	
+	std::vector <std::pair<double, int>> ErrorPrority;
 
 
 
@@ -247,7 +249,7 @@ public:
 	void Render_SolidWireframe();
 	void Render_Wireframe();
 	void Render_Point();
-
+	void Model_Init_Property();
 	void ErrorQuadricsMatrix();
 	void KillEdge();
 
@@ -258,12 +260,18 @@ public:
 private:
 	OpenMesh::VPropHandleT<Eigen::Matrix4d> QvHandle;
 	std::string QvName = "Qv";
+	OpenMesh::EPropHandleT<double> QeHandle;
+	std::string QeName = "Qe";
+	OpenMesh::EPropHandleT<Eigen::Vector4d> NewVertexHandle;
+	std::string NewVertexName = "NVe";
+	
 };
 
 ///*======================================================================*/
 /*======================================================================*/
 bool ReadFile(std::string _fileName, Tri_Mesh *_mesh); //讀取mesh資料
 bool SaveFile(std::string _fileName, Tri_Mesh *_mesh); //儲存mesh資料
+bool ErrorCompare(const std::pair<double, int>& a, const std::pair<double, int>& b);
 /*初始化view port設定函式*/
 
 #endif

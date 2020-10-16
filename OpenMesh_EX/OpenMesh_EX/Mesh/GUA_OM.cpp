@@ -576,22 +576,58 @@ void Tri_Mesh::Render_Point()
 	glEnd();
 }
 
+void Tri_Mesh::Model_Init_Property()
+{
+	this->add_property(QvHandle, QvName);
+	this->property(QvHandle, vertices_begin()) = Eigen::Matrix4d::Zero();
+
+	this->add_property(QeHandle, QeName);
+	this->add_property(NewVertexHandle, NewVertexName);
+
+}
+
 void Tri_Mesh::ErrorQuadricsMatrix()
 {
-	if (this->n_vprops() < 1)
-		this->add_property(QvHandle, QvName);
-	Eigen::Matrix4d a;
-	this->property(QvHandle, vertices_begin()) = a;
-
+	
 	for (VIter vh = vertices_begin(); vh != vertices_end(); ++vh)
 	{
+		Eigen::Matrix4d Qv = Eigen::Matrix4d::Zero();
 		for (VFIter vfh = vf_begin(vh); vfh; ++vfh)
 		{
-			OpenMesh::Vec3d fn = calc_face_normal(vfh);
-			Eigen::Vector3d cur_normal(fn[0], fn[1], fn[2]);
-			
+			Normal fn = calc_face_normal(vfh);
+			Point v = point(vh);
+			Eigen::Vector4d q(fn[0], fn[1], fn[2], 0);
+			q[3] = fn[0] * -v[0] + fn[1] * -v[1] + fn[2] * -v[2];
+			Qv += q * q.transpose();
 		}
+		this->property(QvHandle, vh) = Qv;
 	}
+	
+
+	for (EIter eh = edges_begin(); eh != edges_end(); ++eh)
+	{
+		HalfedgeHandle heh = halfedge_handle(eh, 0);
+		VHandle toh = to_vertex_handle(heh);
+		VHandle fromh = from_vertex_handle(heh);
+		Eigen::Matrix4d Qbar = this->property(QvHandle, toh) + this->property(QvHandle, fromh);
+		Eigen::Matrix4d qij = Qbar;
+		Eigen::Vector4d B(0, 0, 0, 1);
+		qij.row(3) = B;
+		qij = qij.inverse();
+		Eigen::Vector4d NewVertex = qij.colPivHouseholderQr().solve(B);
+		double Qe = NewVertex.transpose() * (Qbar * NewVertex);
+		
+		this->property(NewVertexHandle, eh) = NewVertex;
+		this->property(QeHandle, eh) = Qe;
+		ErrorPrority.push_back(std::pair<double, int>(Qe, eh.handle().idx()));
+	}
+	
+	std::sort(std::begin(ErrorPrority), std::end(ErrorPrority), ErrorCompare);
+
+	/*for (int i = 0; i < ErrorPrority.size(); i++)
+	{
+		std::cout << ErrorPrority[i].second << " " << ErrorPrority[i].first << "\n";
+	}*/
 }
 
 void Tri_Mesh::KillEdge()
@@ -641,6 +677,12 @@ void Tri_Mesh::CountdeltaE()
 
 	
 }
+
+bool ErrorCompare(const std::pair<double, int>& a, const std::pair<double, int>& b)
+{
+	return a.first < b.first;
+}
+
 
 
 

@@ -277,7 +277,8 @@ private: System::Void openModelDialog_FileOk(System::Object^  sender, System::Co
 
 	if (ReadFile(filename, mesh))
 		std::cout << filename << std::endl;
-
+	mesh->Model_Init_Property();
+	mesh->ErrorQuadricsMatrix();
 	hkoglPanelControl1->Invalidate();
 }
 private: System::Void saveModelToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e)
