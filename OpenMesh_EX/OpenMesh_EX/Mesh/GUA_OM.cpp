@@ -566,6 +566,7 @@ void Tri_Mesh::Render_Wireframe()
 
 }
 
+
 void Tri_Mesh::Render_Point()
 {
 	glPointSize(8.0);
@@ -727,11 +728,15 @@ void Tri_Mesh::LSMesh()
 		EHandle Eh = this->edge_handle(EI->idx());
 		HHandle HeH = this->halfedge_handle(Eh, 0);
 
-		VHandle FromVertexH =from_vertex_handle(HeH);
+		VHandle FromVertexH = from_vertex_handle(HeH);
 		VHandle ToVertexH = to_vertex_handle(HeH);
 
-		VHandle OppositeVertexH = this->opposite_vh(HeH);
-		VHandle OppoOppoVertexH = this->opposite_he_opposite_vh(HeH);
+		if (is_boundary(HeH))
+			VHandle OppositeVertexH = this->opposite_vh(HeH);
+		else return;
+		if (is_boundary(opposite_halfedge_handle(HeH)))
+			VHandle OppoOppoVertexH = this->opposite_he_opposite_vh(HeH);
+		else return;
 /*
 		Point FromVertex = this->point(FromVertexH);
 		Point ToVertex = this->point(ToVertexH);

@@ -121,7 +121,7 @@ public:
       boundary  */
   inline VertexHandle opposite_vh(HalfedgeHandle _heh) const
   {
-    return is_boundary(_heh) ? InvalidVertexHandle :
+    return /*is_boundary(_heh) ? InvalidVertexHandle :*/
                                to_vertex_handle(next_halfedge_handle(_heh));
   }
 

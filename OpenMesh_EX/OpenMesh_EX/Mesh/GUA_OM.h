@@ -7,7 +7,7 @@
 #include <OpenMesh/Core/Mesh/PolyMesh_ArrayKernelT.hh>
 #include <OpenMesh/Tools/Utils/getopt.h>
 #include <Eigen/Dense>
-
+#include <Eigen/Sparse>
 #include <windows.h>
 #include <gl/gl.h>
 #include <gl/glu.h>
