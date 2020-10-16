@@ -7,6 +7,7 @@
 #include <OpenMesh/Core/Mesh/PolyMesh_ArrayKernelT.hh>
 #include <OpenMesh/Tools/Utils/getopt.h>
 #include <Eigen/Dense>
+
 #include <windows.h>
 #include <gl/gl.h>
 #include <gl/glu.h>
@@ -256,6 +257,9 @@ public:
 	void Buffer();
 	void GPURender();
 	void CountdeltaE();
+
+	void LSMesh();
+
 
 private:
 	OpenMesh::VPropHandleT<Eigen::Matrix4d> QvHandle;
