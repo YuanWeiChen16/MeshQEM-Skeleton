@@ -2,3 +2,7 @@ F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Debug\OpenMesh_EX.vcxpro
 F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Debug\OpenMesh_EX.MyForm.resources
 F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Debug\OpenMesh_EX.vcxproj.GenerateResource.cache
 F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Debug\OpenMesh_EX.vcxproj.CopyComplete
+D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Debug\OpenMesh_EX.vcxprojAssemblyReference.cache
+D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Debug\OpenMesh_EX.MyForm.resources
+D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Debug\OpenMesh_EX.vcxproj.GenerateResource.cache
+D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Debug\OpenMesh_EX.vcxproj.CopyComplete

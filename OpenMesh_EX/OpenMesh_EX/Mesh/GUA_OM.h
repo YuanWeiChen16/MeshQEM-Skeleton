@@ -243,14 +243,17 @@ public:
 	
 	std::vector <std::pair<double, int>> ErrorPrority;
 
-
-
+	std::vector<double*> pair;
+	std::vector<double*> pts;
+	std::vector<Point> points;
 
 	void Render_Solid();
 	void Render_SolidWireframe();
 	void Render_Wireframe();
 	void Render_Point();
 	void Model_Init_Property();
+	void simplification();
+	bool Checkangle(EIter eh);
 	void ErrorQuadricsMatrix();
 	void KillEdge();
 

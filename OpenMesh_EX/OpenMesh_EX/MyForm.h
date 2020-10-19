@@ -150,6 +150,7 @@ namespace OpenMesh_EX {
 			this->hkoglPanelControl1->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MyForm::hkoglPanelControl1_MouseDown);
 			this->hkoglPanelControl1->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MyForm::hkoglPanelControl1_MouseMove);
 			this->hkoglPanelControl1->MouseWheel += gcnew System::Windows::Forms::MouseEventHandler(this, &MyForm::hkoglPanelControl1_MouseWheel);
+			this->hkoglPanelControl1->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MyForm::hkoglPanelControl1_executesimplify);
 			// 
 			// button1
 			// 
@@ -290,8 +291,9 @@ namespace OpenMesh_EX {
 
 		if (ReadFile(filename, mesh))
 			std::cout << filename << std::endl;
-	mesh->Model_Init_Property();
-	mesh->ErrorQuadricsMatrix();
+		
+	//mesh->Model_Init_Property();
+	//mesh->ErrorQuadricsMatrix();
 		hkoglPanelControl1->Invalidate();
 	}
 	private: System::Void saveModelToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e)
@@ -316,5 +318,13 @@ namespace OpenMesh_EX {
 			mesh->LSMesh();
 		}
 	}
+	private: System::Void hkoglPanelControl1_executesimplify(System::Object^ sender, KeyEventArgs^ e)
+		   {
+			   if (e->KeyCode == Keys::S)
+			   {
+				   mesh->simplification();
+			   }
+		   }
+
 	};
 }

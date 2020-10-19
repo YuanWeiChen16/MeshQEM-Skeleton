@@ -1,7 +1,7 @@
 #include "GUA_OM.h"
 
 #define DEBUG
-
+double PointAngle(Tri_Mesh::Point P1, Tri_Mesh::Point P2, Tri_Mesh::Point VPoint);
 namespace OMT
 {
 	/*======================================================================*/
@@ -541,6 +541,29 @@ void Tri_Mesh::Render_SolidWireframe()
 	}
 	glEnd();
 	glPopAttrib();
+	std::vector<double*>::iterator pt_it;
+	if (pair.size() > 0)
+	{
+		for (int i = 0; i < 2; i++)
+		{
+			glPointSize(10.0f);
+			glBegin(GL_POINTS);
+			glColor3f(0, 1.0, 0);
+			glVertex3dv(pair[i]);
+			glEnd();
+		}
+	}
+	if (pts.size() > 0)
+	{
+		for (pt_it = pts.begin(); pt_it != pts.end(); ++pt_it)
+		{
+			glPointSize(10.0f);
+			glBegin(GL_POINTS);
+			glColor3f(1.0, 0, 0);
+			glVertex3dv(*pt_it);
+			glEnd();
+		}
+	}
 }
 
 void Tri_Mesh::Render_Wireframe()
@@ -589,6 +612,99 @@ void Tri_Mesh::Model_Init_Property()
 
 }
 
+void Tri_Mesh::simplification() 
+{
+	int count = 0;
+	for (EIter eh = edges_begin(); eh != edges_end(); ++eh)
+	{
+		
+		if (Checkangle(eh)) 
+		{
+			std::cout << "collaspe "<< std::endl;
+			HalfedgeHandle ehalf = halfedge_handle(eh.handle(), 1);
+			VHandle to = to_vertex_handle(ehalf);
+			VHandle from = from_vertex_handle(ehalf);
+			set_point(to, (point(to) + point(from)) / 2);
+			collapse_edge(ehalf);
+			garbage_collection();
+			break;
+		}
+		std::cout << std::endl;
+	}
+}
+bool Tri_Mesh::Checkangle(EIter eh)
+{
+	int toid = 0, fromid = 0;
+	std::vector<int> ring;
+		pts.resize(0);
+		points.resize(0);
+		pair.resize(0);
+
+		HalfedgeHandle ehalf = halfedge_handle(eh.handle(), 1);
+		VHandle to = to_vertex_handle(ehalf);
+		VHandle from = from_vertex_handle(ehalf);
+		pair.push_back(point(to).data());
+		pair.push_back(point(from).data());
+
+		for (VVIter vvit = vv_begin(to); vvit; ++vvit)
+		{
+			if (vvit.handle().idx() != to.idx() && vvit.handle().idx() != from.idx())
+			{
+				ring.push_back(vvit.handle().idx());
+				pts.push_back(point(vvit).data());
+				points.push_back(point(vvit));
+			}
+		}
+
+		for (VVIter vvit = vv_begin(from); vvit != vv_end(from); ++vvit)
+		{
+			if (vvit.handle().idx() != to.idx() && vvit.handle().idx() != from.idx())
+			{
+				std::vector<int>::iterator target = find(ring.begin(), ring.end(), vvit.handle().idx());
+
+				if (target == ring.end())
+				{
+					ring.push_back(vvit.handle().idx());
+					pts.push_back(point(vvit).data());
+					points.push_back(point(vvit));
+				}
+			}
+		}
+		std::cout << "point size " <<  points.size()<< std::endl;
+		if(points.size() ==0)
+		{
+			std::cout << "Empty" << std::endl;
+		}
+		std::vector<Point>::iterator pts_it;
+		double angle;
+		for (pts_it = points.begin(); pts_it != points.end(); ++pts_it)
+		{
+			if (*pts_it == *points.begin()) 
+			{
+				std::cout << "begin" << std::endl;
+				angle = PointAngle(*(points.end()-1 ), *(pts_it+1) , *(points.begin()) );
+			}
+			else if (*pts_it ==*(points.end()-1)) 
+			{
+				std::cout << "end" << std::endl;
+				angle = PointAngle(*(pts_it - 1),*points.begin() , *(points.end()-1));
+			}
+			else 
+			{
+			
+				angle = PointAngle(*(pts_it - 1), *(pts_it + 1),*pts_it);
+			}
+			std::cout << "Angle " << angle << std::endl;
+			if (angle > 180) 
+			{
+				return false;
+			}
+		}
+
+
+		return true;
+}
+
 void Tri_Mesh::ErrorQuadricsMatrix()
 {
 	
@@ -616,7 +732,7 @@ void Tri_Mesh::ErrorQuadricsMatrix()
 		Eigen::Matrix4d qij = Qbar;
 		Eigen::Vector4d B(0, 0, 0, 1);
 		qij.row(3) = B;
-		qij = qij.inverse();
+		qij = qij.inverse().eval();
 		Eigen::Vector4d NewVertex = qij.colPivHouseholderQr().solve(B);
 		double Qe = NewVertex.transpose() * (Qbar * NewVertex);
 		
