@@ -5,7 +5,7 @@
 #include "Mesh/DP.h"
 
 Tri_Mesh *mesh;
-
+std::vector<Tri_Mesh> mesh_serial;
 xform xf;
 GLCamera camera;
 float fov = 0.7f;
@@ -59,6 +59,7 @@ namespace OpenMesh_EX {
 	private: System::Windows::Forms::ToolStripMenuItem^  saveModelToolStripMenuItem;
 	private: HKOGLPanel::HKOGLPanelControl^  hkoglPanelControl1;
 	private: System::Windows::Forms::Button^  button1;
+	private: System::Windows::Forms::HScrollBar^ hscroll;
 	protected:
 
 	private:
@@ -151,6 +152,23 @@ namespace OpenMesh_EX {
 			this->hkoglPanelControl1->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MyForm::hkoglPanelControl1_MouseMove);
 			this->hkoglPanelControl1->MouseWheel += gcnew System::Windows::Forms::MouseEventHandler(this, &MyForm::hkoglPanelControl1_MouseWheel);
 			this->hkoglPanelControl1->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MyForm::hkoglPanelControl1_executesimplify);
+			
+			this->hscroll = gcnew HScrollBar();
+			this->hscroll->Scroll += gcnew System::Windows::Forms::ScrollEventHandler(this, &MyForm::hScroller_Scroll);
+			this->hscroll->Dock = System::Windows::Forms::DockStyle::Bottom;
+			this->hscroll->Height = 30;
+			this->hscroll->Width = 200;
+			this->hscroll->Name = L"Simplification Percent %";
+			this->hscroll->Minimum = 0;
+			this->hscroll->Maximum =110;
+			this->hscroll->Value =1;
+			this->Controls->Add(hscroll);
+			//
+			//
+			//
+
+			//hscroll->Scroll += new System::Windows::Forms
+			//hscroll->ControlAdded +=gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// button1
 			// 
@@ -291,6 +309,7 @@ namespace OpenMesh_EX {
 
 		if (ReadFile(filename, mesh))
 			std::cout << filename << std::endl;
+		mesh_serial.push_back(*mesh);
 		
 	//mesh->Model_Init_Property();
 	//mesh->ErrorQuadricsMatrix();
@@ -320,11 +339,25 @@ namespace OpenMesh_EX {
 	}
 	private: System::Void hkoglPanelControl1_executesimplify(System::Object^ sender, KeyEventArgs^ e)
 		   {
+				
 			   if (e->KeyCode == Keys::S)
 			   {
 				   mesh->simplification();
+				   mesh_serial.push_back(*mesh);
+				  
 			   }
 		   }
 
+	private: System::Void hScroller_Scroll(System::Object^ sender, ScrollEventArgs^ e) {
+		if (mesh_serial.size()>0)
+		{
+			float index = (mesh_serial.size()-1) - ((mesh_serial.size()-1)* ((hscroll->Value)/ (float)hscroll->Maximum));
+			std::cout << "value" << index << std::endl;
+			*mesh = mesh_serial[(int)index];
+			mesh->Render_SolidWireframe();
+
+		//	std::cout << "size" << mesh_serial.size() << std::endl;
+		}
+	}
 	};
 }

@@ -54,6 +54,9 @@ D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(739,35): warning C49
 D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(740,28): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::EdgeHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_edge_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{12,{flat}}' }',0}>::operator OpenMesh::EdgeHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
 D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(741,55): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::EdgeHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_edge_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{12,{flat}}' }',0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
 D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(827,20): warning C4018: '<': signed/unsigned 不相符
+  MyForm.cpp
+D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\MyForm.cpp(6,1): warning C4829: 函式 main 的參數可能不正確。請考慮 'int main(Platform::Array<Platform::String^>^ argv)'
+  正在產生程式碼...
 D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp : warning C4793: 'OpenMesh::ArrayKernel::`vcall'{16}'': 函式會編譯成機器碼:
   	非 clrcall 的 vcall Thunk 必須編譯為原生
 D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp : warning C4793: 'OpenMesh::ArrayKernel::`vcall'{12}'': 函式會編譯成機器碼:
