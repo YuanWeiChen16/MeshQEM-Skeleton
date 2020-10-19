@@ -105,6 +105,7 @@ namespace OMP
 		}
 		glEnd();
 		glEnable(GL_LIGHTING);
+
 	}
 	/*======================================================================*/
 	void Model::RenderSpecifiedPoint()
@@ -620,7 +621,7 @@ void Tri_Mesh::simplification()
 		
 		if (Checkangle(eh)) 
 		{
-			std::cout << "collaspe "<< std::endl;
+		//	std::cout << "collaspe "<< std::endl;
 			HalfedgeHandle ehalf = halfedge_handle(eh.handle(), 1);
 			VHandle to = to_vertex_handle(ehalf);
 			VHandle from = from_vertex_handle(ehalf);
@@ -629,7 +630,7 @@ void Tri_Mesh::simplification()
 			garbage_collection();
 			break;
 		}
-		std::cout << std::endl;
+		//std::cout << std::endl;
 	}
 }
 bool Tri_Mesh::Checkangle(EIter eh)
@@ -670,10 +671,10 @@ bool Tri_Mesh::Checkangle(EIter eh)
 				}
 			}
 		}
-		std::cout << "point size " <<  points.size()<< std::endl;
+		//std::cout << "point size " <<  points.size()<< std::endl;
 		if(points.size() ==0)
 		{
-			std::cout << "Empty" << std::endl;
+		//	std::cout << "Empty" << std::endl;
 		}
 		std::vector<Point>::iterator pts_it;
 		double angle;
@@ -681,12 +682,12 @@ bool Tri_Mesh::Checkangle(EIter eh)
 		{
 			if (*pts_it == *points.begin()) 
 			{
-				std::cout << "begin" << std::endl;
+			//	std::cout << "begin" << std::endl;
 				angle = PointAngle(*(points.end()-1 ), *(pts_it+1) , *(points.begin()) );
 			}
 			else if (*pts_it ==*(points.end()-1)) 
 			{
-				std::cout << "end" << std::endl;
+			//	std::cout << "end" << std::endl;
 				angle = PointAngle(*(pts_it - 1),*points.begin() , *(points.end()-1));
 			}
 			else 
@@ -694,7 +695,7 @@ bool Tri_Mesh::Checkangle(EIter eh)
 			
 				angle = PointAngle(*(pts_it - 1), *(pts_it + 1),*pts_it);
 			}
-			std::cout << "Angle " << angle << std::endl;
+		//	std::cout << "Angle " << angle << std::endl;
 			if (angle > 180) 
 			{
 				return false;

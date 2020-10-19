@@ -309,6 +309,7 @@ namespace OpenMesh_EX {
 
 		if (ReadFile(filename, mesh))
 			std::cout << filename << std::endl;
+		mesh_serial.clear();
 		mesh_serial.push_back(*mesh);
 		
 	//mesh->Model_Init_Property();
@@ -339,12 +340,32 @@ namespace OpenMesh_EX {
 	}
 	private: System::Void hkoglPanelControl1_executesimplify(System::Object^ sender, KeyEventArgs^ e)
 		   {
-				
+				int original_edge_size = mesh->n_edges();
+				int count = 0 , tmpedge;
 			   if (e->KeyCode == Keys::S)
 			   {
 				   mesh->simplification();
+				   mesh->update_face_normals();
 				   mesh_serial.push_back(*mesh);
-				  
+				   hkoglPanelControl1->Invalidate();
+				   /*
+				   while (mesh->n_edges() > (int)(original_edge_size*0.1))
+				   {
+					   if (tmpedge == mesh->n_edges()) 
+					   {
+						   count++;
+						   if (count > 1) 
+						   {
+							   break;
+						   }
+					   }
+					   tmpedge = mesh->n_edges();
+					   mesh->simplification();
+					   mesh->update_face_normals();
+					   mesh_serial.push_back(*mesh);
+					   std::cout << "edge size " << mesh->n_edges() << std::endl;
+					   hkoglPanelControl1->Invalidate();
+				   }*/
 			   }
 		   }
 
@@ -355,7 +376,7 @@ namespace OpenMesh_EX {
 			std::cout << "value" << index << std::endl;
 			*mesh = mesh_serial[(int)index];
 			mesh->Render_SolidWireframe();
-
+			hkoglPanelControl1->Invalidate();
 		//	std::cout << "size" << mesh_serial.size() << std::endl;
 		}
 	}

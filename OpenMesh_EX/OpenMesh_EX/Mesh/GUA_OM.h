@@ -246,7 +246,7 @@ public:
 	std::vector<double*> pair;
 	std::vector<double*> pts;
 	std::vector<Point> points;
-
+;
 
 	void Render_Solid();
 	void Render_SolidWireframe();
