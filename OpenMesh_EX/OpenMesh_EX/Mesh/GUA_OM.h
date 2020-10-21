@@ -236,7 +236,8 @@ public:
 	std::vector<OMT::VHandle>                  Pluspt      ;
 	std::vector<OMT::VHandle>                  Minuspt     ;
 	std::vector<OMT::VHandle>                  Extrme_Pt   ;
-
+	int t;
+	float WL = 1.0;
 
 	GLint MeshVAO;
 	GLint MeshVBO;
@@ -246,7 +247,7 @@ public:
 	std::vector<double*> pair;
 	std::vector<double*> pts;
 	std::vector<Point> points;
-;
+float totalMeshArea;
 
 	void Render_Solid();
 	void Render_SolidWireframe();
@@ -265,8 +266,10 @@ public:
 	void GPURender();
 	void CountdeltaE();
 	void simplify();
-	void LSMesh();
-
+	void LSMesh(int t,int WL);
+	void MakeLwi();
+	void MakeAreai();
+	float MaketotalArea();
 
 private:
 	OpenMesh::VPropHandleT<Eigen::Matrix4d> QvHandle;
@@ -277,7 +280,12 @@ private:
 	std::string NewVertexName = "NVe";
 	void cal_Qv(VertexHandle vh);
 	double cal_Qe(EdgeHandle eh);
-};
+OpenMesh::HPropHandleT<float> Wi;
+	std::string WiName = "Wi";
+	OpenMesh::VPropHandleT<float> WH;
+	std::string WHName = "WH";
+	OpenMesh::VPropHandleT<float> Ai;
+	std::string AiName = "Ai";};
 
 ///*======================================================================*/
 /*======================================================================*/

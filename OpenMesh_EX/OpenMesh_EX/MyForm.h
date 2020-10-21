@@ -337,7 +337,8 @@ namespace OpenMesh_EX {
 
 		if (mesh != NULL)
 		{
-			mesh->LSMesh();
+			mesh->LSMesh(mesh->t,mesh->WL);
+			mesh->t += 1;
 		}
 	}
 	private: System::Void hkoglPanelControl1_executesimplify(System::Object^ sender, KeyEventArgs^ e)
