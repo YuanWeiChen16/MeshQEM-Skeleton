@@ -309,11 +309,13 @@ namespace OpenMesh_EX {
 
 		if (ReadFile(filename, mesh))
 			std::cout << filename << std::endl;
-		mesh_serial.clear();
-		mesh_serial.push_back(*mesh);
-		
-	//mesh->Model_Init_Property();
-	//mesh->ErrorQuadricsMatrix();
+		//mesh_serial.clear();
+		//mesh_serial.push_back(*mesh);
+
+		//test Update ErrorMatrix
+		//mesh->Model_Init_Property();
+		//mesh->ErrorQuadricsMatrix();
+		//mesh->testBox();
 		hkoglPanelControl1->Invalidate();
 	}
 	private: System::Void saveModelToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e)

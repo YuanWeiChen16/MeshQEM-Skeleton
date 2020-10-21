@@ -241,7 +241,7 @@ public:
 	GLint MeshVAO;
 	GLint MeshVBO;
 	
-	std::vector <std::pair<double, int>> ErrorPrority;
+	std::vector <std::pair<double, EHandle>> ErrorPrority;
 
 	std::vector<double*> pair;
 	std::vector<double*> pts;
@@ -256,12 +256,15 @@ public:
 	void simplification();
 	bool Checkangle(EIter eh);
 	void ErrorQuadricsMatrix();
+	void UpdateErrorMatrix(VertexHandle vh);
+	//call after garbage collection
+	void UpdateErrorVector();
 	void KillEdge();
-
+	void testBox();
 	void Buffer();
 	void GPURender();
 	void CountdeltaE();
-
+	void simplify();
 	void LSMesh();
 
 
@@ -272,14 +275,15 @@ private:
 	std::string QeName = "Qe";
 	OpenMesh::EPropHandleT<Eigen::Vector4d> NewVertexHandle;
 	std::string NewVertexName = "NVe";
-	
+	void cal_Qv(VertexHandle vh);
+	double cal_Qe(EdgeHandle eh);
 };
 
 ///*======================================================================*/
 /*======================================================================*/
 bool ReadFile(std::string _fileName, Tri_Mesh *_mesh); //讀取mesh資料
 bool SaveFile(std::string _fileName, Tri_Mesh *_mesh); //儲存mesh資料
-bool ErrorCompare(const std::pair<double, int>& a, const std::pair<double, int>& b);
+bool ErrorCompare(const std::pair<double, Tri_Mesh::EdgeHandle>& a, const std::pair<double, Tri_Mesh::EdgeHandle>& b);
 /*初始化view port設定函式*/
 
 #endif

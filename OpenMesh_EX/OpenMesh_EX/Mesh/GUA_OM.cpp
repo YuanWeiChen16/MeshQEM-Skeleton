@@ -511,6 +511,7 @@ void Tri_Mesh::Render_SolidWireframe()
 	glPolygonOffset(2.0, 2.0);
 	glBegin(GL_TRIANGLES);
 	glColor4f(1.0, 0.96, 0.49, 1.0);
+	
 	for (f_it = faces_begin(); f_it != faces_end(); ++f_it)
 	{
 		for (fv_it = fv_iter(f_it); fv_it; ++fv_it)
@@ -708,38 +709,16 @@ bool Tri_Mesh::Checkangle(EIter eh)
 
 void Tri_Mesh::ErrorQuadricsMatrix()
 {
-	
 	for (VIter vh = vertices_begin(); vh != vertices_end(); ++vh)
 	{
-		Eigen::Matrix4d Qv = Eigen::Matrix4d::Zero();
-		for (VFIter vfh = vf_begin(vh); vfh; ++vfh)
-		{
-			Normal fn = calc_face_normal(vfh);
-			Point v = point(vh);
-			Eigen::Vector4d q(fn[0], fn[1], fn[2], 0);
-			q[3] = fn[0] * -v[0] + fn[1] * -v[1] + fn[2] * -v[2];
-			Qv += q * q.transpose();
-		}
-		this->property(QvHandle, vh) = Qv;
+		cal_Qv(vh.handle());
 	}
 	
-
+	ErrorPrority.resize(n_edges());
 	for (EIter eh = edges_begin(); eh != edges_end(); ++eh)
 	{
-		HalfedgeHandle heh = halfedge_handle(eh, 0);
-		VHandle toh = to_vertex_handle(heh);
-		VHandle fromh = from_vertex_handle(heh);
-		Eigen::Matrix4d Qbar = this->property(QvHandle, toh) + this->property(QvHandle, fromh);
-		Eigen::Matrix4d qij = Qbar;
-		Eigen::Vector4d B(0, 0, 0, 1);
-		qij.row(3) = B;
-		qij = qij.inverse().eval();
-		Eigen::Vector4d NewVertex = qij.colPivHouseholderQr().solve(B);
-		double Qe = NewVertex.transpose() * (Qbar * NewVertex);
-		
-		this->property(NewVertexHandle, eh) = NewVertex;
-		this->property(QeHandle, eh) = Qe;
-		ErrorPrority.push_back(std::pair<double, int>(Qe, eh.handle().idx()));
+		double Qe = cal_Qe(eh.handle());
+		ErrorPrority[eh.handle().idx()] = (std::pair<double, EdgeHandle>(Qe, eh.handle()));
 	}
 	
 	std::sort(std::begin(ErrorPrority), std::end(ErrorPrority), ErrorCompare);
@@ -748,6 +727,48 @@ void Tri_Mesh::ErrorQuadricsMatrix()
 	{
 		std::cout << ErrorPrority[i].second << " " << ErrorPrority[i].first << "\n";
 	}*/
+}
+
+void Tri_Mesh::UpdateErrorMatrix(VertexHandle vh)
+{
+	cal_Qv(vh);
+
+	for (VVIter vvi = vv_begin(vh); vvi; ++vvi)
+	{
+		if (status(vvi).deleted()) continue;
+		cal_Qv(vvi.handle());
+	}
+
+	std::map <int, bool> checkQe;
+	for (VEIter vei = ve_begin(vh); vei; ++vei)
+	{
+		if (status(vei).deleted()) continue;
+		cal_Qe(vei.handle());
+		checkQe[vei.handle().idx()] = true;
+	}
+
+	for (VVIter vvi = vv_begin(vh); vvi; ++vvi)
+	{
+		for (VEIter vei = ve_begin(vvi); vei; ++vei)
+		{
+			if (status(vei).deleted() || (checkQe.find(vei.handle().idx()) != checkQe.end())) continue;
+			cal_Qe(vei.handle());
+			checkQe[vei.handle().idx()] = true;
+		}
+	}
+}
+
+void Tri_Mesh::UpdateErrorVector()
+{
+	ErrorPrority.clear();
+	std::vector<std::pair<double, EHandle>>().swap(ErrorPrority);
+	ErrorPrority.resize(n_edges());
+	for (EIter ei = edges_begin(); ei != edges_end(); ++ei)
+	{
+		if (status(ei).deleted()) ErrorPrority[ei.handle().idx()] = (std::pair<double, EdgeHandle>(DBL_MAX, ei));
+		ErrorPrority[ei.handle().idx()] = (std::pair<double, EdgeHandle>(this->property(QeHandle, ei), ei));
+	}
+	std::sort(ErrorPrority.begin(), ErrorPrority.end(), ErrorCompare);
 }
 
 void Tri_Mesh::KillEdge()
@@ -780,6 +801,50 @@ void Tri_Mesh::KillEdge()
 
 }
 
+void Tri_Mesh::testBox()
+{
+	OpenMesh::EPropHandleT<int> originID;
+	this->add_property(originID, "id");
+	std::cout << n_vertices() << " " << n_edges() << "\n";
+	std::cout << "\n\nVector\n";
+	for (int i = 0; i < ErrorPrority.size(); i++)
+	{
+		std::cout << ErrorPrority[i].second.idx() << "\n";
+	}
+	EdgeHandle eh = edge_handle(ErrorPrority[0].second.idx());
+	for (EIter ei = edges_begin(); ei != edges_end(); ++ei)
+	{
+		HHandle heh = halfedge_handle(ei, 0);
+		VHandle tov = to_vertex_handle(heh);
+		VHandle fromv = from_vertex_handle(heh);
+		std::cout << "Edge index: " << ei.handle().idx() << "\t" << tov.idx() << "\t" << fromv.idx() << "\n";
+		this->property(originID, ei) = ei.handle().idx();
+	}
+	HHandle eheh = halfedge_handle(eh, 0);
+	VHandle htov = to_vertex_handle(eheh);
+	VHandle hfromv = from_vertex_handle(eheh);
+	std::cout << "collapse edge: " << eh.idx() << "\t" << htov.idx() << "\t" << hfromv.idx() << "\n";
+	
+	collapse_edge(halfedge_handle(eh, 0));
+	std::cout << n_vertices() << " " << n_edges() << "\n";
+	UpdateErrorMatrix(htov);
+	garbage_collection();
+	UpdateErrorVector();
+	for (EIter ei = edges_begin(); ei != edges_end(); ++ei)
+	{
+		HHandle heh = halfedge_handle(ei, 0);
+		VHandle tov = to_vertex_handle(heh);
+		VHandle fromv = from_vertex_handle(heh);
+		std::cout << "Edge index: " << ei.handle().idx() << "\t" << tov.idx() << "\t" << fromv.idx() << "\t" << this->property(originID, ei) << "\n";
+	}
+	std::cout << "\n\nVector\n";
+	for (int i = 0; i < ErrorPrority.size(); i++)
+	{
+		std::cout << ErrorPrority[i].second.idx() << "\n";
+	}
+	std::cout << n_vertices() << " " << n_edges() << " " << "\n";
+}
+
 void Tri_Mesh::Buffer()
 {
 
@@ -798,7 +863,12 @@ void Tri_Mesh::CountdeltaE()
 
 }
 
-bool ErrorCompare(const std::pair<double, int>& a, const std::pair<double, int>& b)
+void Tri_Mesh::simplify()
+{
+	
+}
+
+bool ErrorCompare(const std::pair<double, Tri_Mesh::EdgeHandle>& a, const std::pair<double, Tri_Mesh::EdgeHandle>& b)
 {
 	return a.first < b.first;
 }
@@ -998,6 +1068,38 @@ void Tri_Mesh::LSMesh()
 
 }
 
+void Tri_Mesh::cal_Qv(VertexHandle vh)
+{
+	Eigen::Matrix4d Qv = Eigen::Matrix4d::Zero();
+	for (VFIter vfh = vf_begin(vh); vfh; ++vfh)
+	{
+		if (status(vfh).deleted()) continue;
+		Normal fn = calc_face_normal(vfh);
+		Point v = point(vh);
+		Eigen::Vector4d q(fn[0], fn[1], fn[2], 0);
+		q[3] = fn[0] * -v[0] + fn[1] * -v[1] + fn[2] * -v[2];
+		Qv += q * q.transpose();
+	}
+	this->property(QvHandle, vh) = Qv;
+}
+
+double Tri_Mesh::cal_Qe(EdgeHandle eh)
+{
+	HalfedgeHandle heh = halfedge_handle(eh, 0);
+	VHandle toh = to_vertex_handle(heh);
+	VHandle fromh = from_vertex_handle(heh);
+	Eigen::Matrix4d Qbar = this->property(QvHandle, toh) + this->property(QvHandle, fromh);
+	Eigen::Matrix4d qij = Qbar;
+	Eigen::Vector4d B(0, 0, 0, 1);
+	qij.row(3) = B;
+	qij = qij.inverse().eval();
+	Eigen::Vector4d NewVertex = qij.colPivHouseholderQr().solve(B);
+	double Qe = NewVertex.transpose() * (Qbar * NewVertex);
+
+	this->property(NewVertexHandle, eh) = NewVertex;
+	this->property(QeHandle, eh) = Qe;
+	return Qe;
+}
 
 bool ReadFile(std::string _fileName, Tri_Mesh *_mesh)
 {

@@ -1,7 +1,7 @@
 ﻿  MyForm.cpp
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\MyForm.h(344,21): warning C4101: 'tmpedge': 未參考的區域變數
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\MyForm.cpp(6,1): warning C4829: 函式 main 的參數可能不正確。請考慮 'int main(Platform::Array<Platform::String^>^ argv)'
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\MyForm.cpp : warning C4793: 'OpenMesh::ArrayKernel::`vcall'{16}'': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\MyForm.h(345,21): warning C4101: 'tmpedge': 未參考的區域變數
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\MyForm.cpp(6,1): warning C4829: 函式 main 的參數可能不正確。請考慮 'int main(Platform::Array<Platform::String^>^ argv)'
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\MyForm.cpp : warning C4793: 'OpenMesh::ArrayKernel::`vcall'{16}'': 函式會編譯成機器碼:
   	非 clrcall 的 vcall Thunk 必須編譯為原生
   DotNetUitilities.obj : 發現 MSIL 模組。MSIL 的累加連結已停用。正在執行完整連結
-  OpenMesh_EX.vcxproj -> D:\MeshQEM-Skeleton\OpenMesh_EX\Debug\OpenMesh_EX.exe
+  OpenMesh_EX.vcxproj -> F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\Debug\OpenMesh_EX.exe
