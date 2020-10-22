@@ -236,8 +236,8 @@ public:
 	std::vector<OMT::VHandle>                  Pluspt      ;
 	std::vector<OMT::VHandle>                  Minuspt     ;
 	std::vector<OMT::VHandle>                  Extrme_Pt   ;
-	int t;
-	float WL = 1.0;
+	int t=0;
+	double OutsideWL = 1.0;
 
 	GLint MeshVAO;
 	GLint MeshVBO;
@@ -266,7 +266,7 @@ float totalMeshArea;
 	void GPURender();
 	void CountdeltaE();
 	void simplify();
-	void LSMesh(int t,int WL);
+	void LSMesh(int t, double WL);
 	void MakeLwi();
 	void MakeAreai();
 	float MaketotalArea();

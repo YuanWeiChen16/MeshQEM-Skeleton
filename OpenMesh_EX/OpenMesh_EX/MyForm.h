@@ -337,7 +337,11 @@ namespace OpenMesh_EX {
 
 		if (mesh != NULL)
 		{
-			mesh->LSMesh(mesh->t,mesh->WL);
+			if (mesh->t == 0)
+			{
+				mesh->Model_Init_Property();
+			}
+			mesh->LSMesh(mesh->t,mesh->OutsideWL);
 			mesh->t += 1;
 		}
 	}
