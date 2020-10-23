@@ -247,7 +247,7 @@ public:
 	std::vector<double*> pair;
 	std::vector<double*> pts;
 	std::vector<Point> points;
-float totalMeshArea;
+	double totalMeshArea;
 
 	void Render_Solid();
 	void Render_SolidWireframe();
@@ -269,7 +269,7 @@ float totalMeshArea;
 	void LSMesh(int t, double WL);
 	void MakeLwi();
 	void MakeAreai();
-	float MaketotalArea();
+	double MaketotalArea();
 
 private:
 	OpenMesh::VPropHandleT<Eigen::Matrix4d> QvHandle;

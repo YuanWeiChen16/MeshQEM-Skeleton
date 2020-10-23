@@ -892,14 +892,17 @@ double PointAngle(Tri_Mesh::Point P1, Tri_Mesh::Point P2, Tri_Mesh::Point VPoint
 
 void Tri_Mesh::LSMesh(int t, double WL)
 {
-	float SL = 2.0;
+	double SL = 2.0;
 	//Matrix!!!
-	Eigen::SparseMatrix<double> L(this->n_vertices() * 2, this->n_vertices());	
-	Eigen::SimplicialLDLT<Eigen::SparseMatrix<double>> linearSolver;	
+	Eigen::SparseMatrix<double> L(this->n_vertices() * 2, this->n_vertices());
+	Eigen::SimplicialLDLT<Eigen::SparseMatrix<double>> linearSolver;
 	Eigen::VectorXd Bx(this->n_vertices() * 2);
 	Eigen::VectorXd By(this->n_vertices() * 2);
 	Eigen::VectorXd Bz(this->n_vertices() * 2);
-
+	L.setZero();	
+	Bx.setZero();
+	By.setZero();
+	Bz.setZero();
 	//Do wi==================================================================================================================================
 	MakeLwi();
 	//Do A0==================================================================================================================================
@@ -908,9 +911,9 @@ void Tri_Mesh::LSMesh(int t, double WL)
 	{
 		MakeAreai();
 		//total A(only first)
-		float totalArea = this->MaketotalArea();
-		//WL = 10*totalArea;
-		WL = 5.28928;// 10*totalArea;
+		double totalArea = this->MaketotalArea();
+		WL = 0.001*totalArea;
+		//WL = 5.28928;// 10*totalArea;
 		//std::cout << totalArea << std::endl;
 	}
 	else
@@ -921,18 +924,18 @@ void Tri_Mesh::LSMesh(int t, double WL)
 	//make matrix================================================================================================================
 	for (Tri_Mesh::VertexIter VI = this->vertices_begin(); VI != this->vertices_end(); ++VI)
 	{
-		float ABigWi = 0;
-		float A0 = this->property(Ai, VI);
-		float At = 0;
+		double ABigWi = 0;
+		double A0 = this->property(Ai, VI);
+		double At = 0;
 		Tri_Mesh::VertexHandle NowVertex = this->vertex_handle(VI->idx());
 		std::vector<double> ThisA_Array;
 		std::vector<int> ThisA_Array_List;
 		std::vector<Tri_Mesh::Point> tempPoint;
-		std::cout << "Line " << VI->idx() << "  ";
+		//std::cout << "Line " << VI->idx() << "  ";
 		//Done Matrix every row===========================================================================================================================
 		for (Tri_Mesh::VVIter VV = this->vv_begin(NowVertex); VV != this->vv_end(NowVertex); ++VV)
 		{
-			float ThisVertexWi = 0;
+			double ThisVertexWi = 0;
 			Tri_Mesh::VertexHandle TargetVet = this->vertex_handle(VV->idx());
 			Tri_Mesh::HalfedgeHandle myedge = this->find_halfedge(NowVertex, VV);
 			ThisA_Array.push_back(this->property(this->Wi, myedge));
@@ -944,17 +947,17 @@ void Tri_Mesh::LSMesh(int t, double WL)
 		for (int i = 0; i < ThisA_Array_List.size(); i++)
 		{
 			//L.insert(VI->idx(), ThisA_Array_List[i]) = ((-ThisA_Array[i]) / ABigWi)*WL;
-			L.insert(VI->idx(), ThisA_Array_List[i]) = (ThisA_Array[i])*WL;
-			std::cout << (ThisA_Array[i])*WL << "  ";
+			L.insert(VI->idx(), ThisA_Array_List[i]) = (ThisA_Array[i])*WL;			
+			//std::cout << (ThisA_Array[i])*WL << "  ";
 			//Heron's Formula
-			float a = (midPoint - tempPoint[(i) % tempPoint.size()]).length();
-			float b = (midPoint - tempPoint[(i + 1) % tempPoint.size()]).length();
-			float c = (tempPoint[(i) % tempPoint.size()] - tempPoint[(i + 1) % tempPoint.size()]).length();
-			float S = (a + b + c) / 2.0;
+			double a = (midPoint - tempPoint[(i) % tempPoint.size()]).length();
+			double b = (midPoint - tempPoint[(i + 1) % tempPoint.size()]).length();
+			double c = (tempPoint[(i) % tempPoint.size()] - tempPoint[(i + 1) % tempPoint.size()]).length();
+			double S = (a + b + c) / 2.0;
 			At += std::sqrtf(S*(S - a)*(S - b)*(S - c));
 		}
 
-		float Whi = 0;
+		double Whi = 0;
 		if (t == 0)
 		{
 			Whi = 1.0;
@@ -965,15 +968,15 @@ void Tri_Mesh::LSMesh(int t, double WL)
 		}
 		int j = VI->idx();
 		//init B
-		L.insert(j, j) = (-1) * ABigWi * WL;
-		std::cout << "total wight " << (-1) * ABigWi * WL << std::endl;
-		L.insert(j + this->n_vertices(), j) = 1.0*Whi;
+		L.insert(j, j) = (-1) * ABigWi * WL;		
+		//std::cout << "total wight " << (-1) * ABigWi * WL << std::endl;
+		L.insert(j + this->n_vertices(), j) = 1.0*Whi;		
 
-		Bx[j + this->n_vertices()] = this->point(this->vertex_handle(j))[0] * Whi;
-		By[j + this->n_vertices()] = this->point(this->vertex_handle(j))[1] * Whi;
-		Bz[j + this->n_vertices()] = this->point(this->vertex_handle(j))[2] * Whi;
+		Bx[j + this->n_vertices()] = this->point(*VI)[0] * Whi;
+		By[j + this->n_vertices()] = this->point(*VI)[1] * Whi;
+		Bz[j + this->n_vertices()] = this->point(*VI)[2] * Whi;
 
-		//std::cout << "vertex " << VI->idx() << std::endl;
+		//std::cout << "vertex X " << Bx[j + this->n_vertices()] << " Y " << By[j + this->n_vertices()] << " Z " << Bz[j + this->n_vertices()] << std::endl;
 	}
 
 #ifdef DEBUG
@@ -988,37 +991,39 @@ void Tri_Mesh::LSMesh(int t, double WL)
 	Bx = L.transpose()*Bx;
 	By = L.transpose()*By;
 	Bz = L.transpose()*Bz;
+	L = L.transpose()*L;	
 
-	L = L.transpose()*L;
 	L.makeCompressed();
-
+	
 	linearSolver.compute(L);
 	
+	
 	Eigen::VectorXd Xx = linearSolver.solve(Bx);
-
+	//linearSolver.compute(L);
 	Eigen::VectorXd Xy = linearSolver.solve(By);
-
+	//linearSolver.compute(L);
 	Eigen::VectorXd Xz = linearSolver.solve(Bz);
+	
 	//std::cout << "liner Solve!!" << std::endl;
 
 	for (Tri_Mesh::VIter VI = this->vertices_begin(); VI != this->vertices_end(); ++VI)
 	{
 		Tri_Mesh::VertexHandle VH = this->vertex_handle(VI->idx());
 
-		this->point(VH)[0] = Xx[VI->idx()];
-		this->point(VH)[1] = Xy[VI->idx()];
+		this->point(VH)[0] = Xx[VI->idx()];		
+		this->point(VH)[1] = Xy[VI->idx()];	
 		this->point(VH)[2] = Xz[VI->idx()];
-		std::cout << VI->idx() << "XX" << Xx[VI->idx()] << "YY" << Xy[VI->idx()] << "ZZ" << Xz[VI->idx()] << std::endl;
+		//std::cout << VI->idx() << " XX " << Xx[VI->idx()] << " YY " << Xy[VI->idx()] << " ZZ " << Xz[VI->idx()] << std::endl;
 	}
 
 	this->request_face_normals();
 	this->update_normals();
 	this->release_face_normals();
 
-	std::cout << "LSMESH!!!!" << std::endl;
+	std::cout << "this is "<<this->t <<" LSMESH!!!!" << std::endl;
 
 
-	}
+}
 
 void Tri_Mesh::MakeLwi()
 {
@@ -1069,24 +1074,24 @@ void Tri_Mesh::MakeAreai()
 			tempPoint.push_back(this->point(*VV));
 		}
 		Tri_Mesh::Point  midPoint = this->point(*VI);
-		float OneRingArea = 0;
+		double OneRingArea = 0;
 		for (int i = 0; i < tempPoint.size(); i++)
 		{
 			//Heron's Formula
-			float a = (midPoint - tempPoint[(i) % tempPoint.size()]).length();
-			float b = (midPoint - tempPoint[(i + 1) % tempPoint.size()]).length();
-			float c = (tempPoint[(i) % tempPoint.size()] - tempPoint[(i + 1) % tempPoint.size()]).length();
-			float S = (a + b + c) / 2.0;
+			double a = (midPoint - tempPoint[(i) % tempPoint.size()]).length();
+			double b = (midPoint - tempPoint[(i + 1) % tempPoint.size()]).length();
+			double c = (tempPoint[(i) % tempPoint.size()] - tempPoint[(i + 1) % tempPoint.size()]).length();
+			double S = (a + b + c) / 2.0;
 			OneRingArea += std::sqrtf(S*(S - a)*(S - b)*(S - c));
 		}
 		this->property(this->Ai, VI) = OneRingArea;
 	}
 }
 
-float Tri_Mesh::MaketotalArea()
+double Tri_Mesh::MaketotalArea()
 {
 	//total A(only first)
-	float totalArea = 0;
+	double totalArea = 0;
 	for (FaceIter FI = this->faces_begin(); FI != this->faces_end(); ++FI)
 	{
 		std::vector<Point> tempPoint;
@@ -1095,10 +1100,10 @@ float Tri_Mesh::MaketotalArea()
 			tempPoint.push_back(this->point(FVI));
 		}
 		//Heron's Formula
-		float a = (tempPoint[0] - tempPoint[1]).length();
-		float b = (tempPoint[0] - tempPoint[2]).length();
-		float c = (tempPoint[1] - tempPoint[2]).length();
-		float S = (a + b + c) / 2.0;
+		double a = (tempPoint[0] - tempPoint[1]).length();
+		double b = (tempPoint[0] - tempPoint[2]).length();
+		double c = (tempPoint[1] - tempPoint[2]).length();
+		double S = (a + b + c) / 2.0;
 		totalArea += std::sqrtf(S*(S - a)*(S - b)*(S - c));
 	}
 	return totalArea / this->n_faces();
