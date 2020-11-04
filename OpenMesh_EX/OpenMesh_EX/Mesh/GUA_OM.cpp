@@ -619,32 +619,53 @@ void Tri_Mesh::Model_Init_Property()
 void Tri_Mesh::simplification()
 {
 	int count = 0;
-	for (EIter eh = edges_begin(); eh != edges_end(); ++eh)
+	int index = 0;
+	EdgeHandle eh;
+	bool colsw = false;
+	Eigen::Vector4d etmpv;
+	OpenMesh::Vec3d tmpv;
+	std::vector <std::pair<double, EHandle>>::iterator ep_iter;
+	for (ep_iter = ErrorPrority.begin(); ep_iter != ErrorPrority.end(); ++ep_iter)
 	{
+		eh = edge_handle(ep_iter->second.idx());
 
+		etmpv = property(NewVertexHandle, eh);
+		tmpv[0] = etmpv[0];
+		tmpv[1] = etmpv[1];
+		tmpv[2] = etmpv[2];
 		if (Checkangle(eh))
 		{
-			//	std::cout << "collaspe "<< std::endl;
-			HalfedgeHandle ehalf = halfedge_handle(eh.handle(), 1);
+			HalfedgeHandle ehalf = halfedge_handle(eh, 1);
 			VHandle to = to_vertex_handle(ehalf);
 			VHandle from = from_vertex_handle(ehalf);
-			set_point(to, (point(to) + point(from)) / 2);
-			collapse_edge(ehalf);
-			garbage_collection();
-			break;
+			Point tmpto = point(to);
+			set_point(to,tmpv);
+			colsw = is_collapse_ok(ehalf);
+
+			if (colsw)
+			{
+				collapse(ehalf);
+				UpdateErrorMatrix(to);
+				garbage_collection();
+				UpdateErrorVector();
+				break;
+			}
+			else
+			{
+				set_point(to, tmpto);
+			}
 		}
-		//std::cout << std::endl;
 	}
 }
-bool Tri_Mesh::Checkangle(EIter eh)
+bool Tri_Mesh::Checkangle(EdgeHandle eh)
 {
 	int toid = 0, fromid = 0;
 	std::vector<int> ring;
-	pts.resize(0);
-	points.resize(0);
-	pair.resize(0);
+	pts.clear();
+	points.clear();
+	pair.clear();
 
-	HalfedgeHandle ehalf = halfedge_handle(eh.handle(), 1);
+	HalfedgeHandle ehalf = halfedge_handle(eh, 1);
 	VHandle to = to_vertex_handle(ehalf);
 	VHandle from = from_vertex_handle(ehalf);
 	pair.push_back(point(to).data());
@@ -1133,7 +1154,7 @@ double Tri_Mesh::cal_Qe(EdgeHandle eh)
 	Eigen::Matrix4d qij = Qbar;
 	Eigen::Vector4d B(0, 0, 0, 1);
 	qij.row(3) = B;
-	qij = qij.inverse().eval();
+	//qij = qij.inverse().eval();
 	Eigen::Vector4d NewVertex = qij.colPivHouseholderQr().solve(B);
 	double Qe = NewVertex.transpose() * (Qbar * NewVertex);
 

@@ -313,8 +313,8 @@ namespace OpenMesh_EX {
 		//mesh_serial.push_back(*mesh);
 
 		//test Update ErrorMatrix
-		//mesh->Model_Init_Property();
-		//mesh->ErrorQuadricsMatrix();
+		mesh->Model_Init_Property();
+		mesh->ErrorQuadricsMatrix();
 		//mesh->testBox();
 		hkoglPanelControl1->Invalidate();
 	}
@@ -351,6 +351,7 @@ namespace OpenMesh_EX {
 				int count = 0 , tmpedge;
 			   if (e->KeyCode == Keys::S)
 			   {
+
 				   mesh->simplification();
 				   mesh->update_face_normals();
 				   mesh_serial.push_back(*mesh);

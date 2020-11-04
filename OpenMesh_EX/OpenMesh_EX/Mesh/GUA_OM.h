@@ -255,7 +255,7 @@ public:
 	void Render_Point();
 	void Model_Init_Property();
 	void simplification();
-	bool Checkangle(EIter eh);
+	bool Checkangle(EdgeHandle eh);
 	void ErrorQuadricsMatrix();
 	void UpdateErrorMatrix(VertexHandle vh);
 	//call after garbage collection
