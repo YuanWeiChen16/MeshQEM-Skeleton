@@ -1,557 +1,273 @@
-﻿  GUA_OM.cpp
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(80,30): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_face_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{16,{flat}}' }',0}>::operator OpenMesh::FaceHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(82,34): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(83,33): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(101,38): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::EdgeHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_edge_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{12,{flat}}' }',0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(160,43): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::operator bool': Do not use this error prone implicit cast. Compare to end-iterator or use is_valid(), instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(162,35): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(163,34): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(272,41): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::operator bool': Do not use this error prone implicit cast. Compare to end-iterator or use is_valid(), instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(273,12): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(306,49): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::FaceHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toOppositeFaceHandle,0}>::operator bool': Do not use this error prone implicit cast. Compare to end-iterator or use is_valid(), instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(308,22): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::FaceHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toOppositeFaceHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(310,39): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::FaceHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toOppositeFaceHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(311,19): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::FaceHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toOppositeFaceHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(341,20): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::operator bool': Do not use this error prone implicit cast. Compare to end-iterator or use is_valid(), instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(343,20): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(390,49): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::FaceHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toOppositeFaceHandle,0}>::operator bool': Do not use this error prone implicit cast. Compare to end-iterator or use is_valid(), instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(392,22): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::FaceHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toOppositeFaceHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(394,39): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::FaceHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toOppositeFaceHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(395,19): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::FaceHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toOppositeFaceHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(429,20): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::operator bool': Do not use this error prone implicit cast. Compare to end-iterator or use is_valid(), instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(431,20): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(467,19): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_vertex_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{4,{flat}}' }',0}>::operator OpenMesh::VertexHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(468,17): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_vertex_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{4,{flat}}' }',0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(483,33): warning C4305: '引數': 從 'double' 轉換為 'GLfloat'，是由較大的類型轉換為較小的類型，可能導致資料遺失
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(486,24): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_face_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{16,{flat}}' }',0}>::operator OpenMesh::FaceHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(488,28): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(489,27): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(513,32): warning C4305: '引數': 從 'double' 轉換為 'GLfloat'，是由較大的類型轉換為較小的類型，可能導致資料遺失
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(517,24): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_face_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{16,{flat}}' }',0}>::operator OpenMesh::FaceHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(520,27): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(536,46): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::EdgeHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_edge_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{12,{flat}}' }',0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(582,46): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::EdgeHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_edge_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{12,{flat}}' }',0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(602,21): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_vertex_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{4,{flat}}' }',0}>::operator OpenMesh::VertexHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(610,41): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_vertex_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{4,{flat}}' }',0}>::operator OpenMesh::VertexHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(674,35): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::operator bool': Do not use this error prone implicit cast. Compare to end-iterator or use is_valid(), instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(676,11): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(678,23): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(679,24): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::operator OpenMesh::VertexHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(680,27): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::operator OpenMesh::VertexHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(686,11): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(688,75): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(692,24): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(693,25): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::operator OpenMesh::VertexHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(694,28): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::operator OpenMesh::VertexHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(737,12): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_vertex_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{4,{flat}}' }',0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(744,24): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::EdgeHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_edge_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{12,{flat}}' }',0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(745,18): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::EdgeHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_edge_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{12,{flat}}' }',0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(760,34): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::operator bool': Do not use this error prone implicit cast. Compare to end-iterator or use is_valid(), instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(762,14): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::operator OpenMesh::VertexHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(763,13): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(767,34): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::EdgeHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toEdgeHandle,0}>::operator bool': Do not use this error prone implicit cast. Compare to end-iterator or use is_valid(), instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(769,14): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::EdgeHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toEdgeHandle,0}>::operator OpenMesh::EdgeHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(770,13): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::EdgeHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toEdgeHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(771,14): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::EdgeHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toEdgeHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(774,34): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::operator bool': Do not use this error prone implicit cast. Compare to end-iterator or use is_valid(), instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(776,30): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::operator OpenMesh::VertexHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(778,15): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::EdgeHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toEdgeHandle,0}>::operator OpenMesh::EdgeHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(779,14): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::EdgeHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toEdgeHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(780,15): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::EdgeHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toEdgeHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(792,14): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::EdgeHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_edge_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{12,{flat}}' }',0}>::operator OpenMesh::EdgeHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(793,18): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::EdgeHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_edge_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{12,{flat}}' }',0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(834,20): warning C4018: '<': signed/unsigned 不相符
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(865,20): warning C4018: '<': signed/unsigned 不相符
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(841,33): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::EdgeHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_edge_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{12,{flat}}' }',0}>::operator OpenMesh::EdgeHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(844,36): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::EdgeHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_edge_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{12,{flat}}' }',0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(845,28): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::EdgeHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_edge_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{12,{flat}}' }',0}>::operator OpenMesh::EdgeHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(859,33): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::EdgeHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_edge_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{12,{flat}}' }',0}>::operator OpenMesh::EdgeHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(862,36): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::EdgeHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_edge_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{12,{flat}}' }',0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(968,21): warning C4018: '<': signed/unsigned 不相符
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(978,38): warning C4244: '引數': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(988,44): warning C4244: '引數': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(949,34): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_vertex_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{4,{flat}}' }',0}>::operator OpenMesh::VertexHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(961,69): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::operator OpenMesh::VertexHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(988,40): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_vertex_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{4,{flat}}' }',0}>::operator OpenMesh::VertexHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(1078,32): warning C4244: '=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(1099,21): warning C4018: '<': signed/unsigned 不相符
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(1106,47): warning C4244: '引數': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(1108,34): warning C4244: '=': 將 'double' 轉換為 '_Ty'，由於類型不同，可能導致資料遺失
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.MetaGen.targets(91,5): warning : 遺漏必要的檔案 "D:\MESHQEM-SKELETON\OPENMESH_EX\DEBUG\HKOGLPANEL.DLL"。
+  DotNetUitilities.cpp
+  GLCamera.cc
+  GUA_OM.cpp
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(80,30): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_face_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{16,{flat}}' }',0}>::operator OpenMesh::FaceHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(82,34): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(83,33): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(101,38): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::EdgeHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_edge_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{12,{flat}}' }',0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(160,43): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::operator bool': Do not use this error prone implicit cast. Compare to end-iterator or use is_valid(), instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(162,35): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(163,34): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(272,41): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::operator bool': Do not use this error prone implicit cast. Compare to end-iterator or use is_valid(), instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(273,12): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(306,49): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::FaceHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toOppositeFaceHandle,0}>::operator bool': Do not use this error prone implicit cast. Compare to end-iterator or use is_valid(), instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(308,22): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::FaceHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toOppositeFaceHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(310,39): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::FaceHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toOppositeFaceHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(311,19): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::FaceHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toOppositeFaceHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(341,20): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::operator bool': Do not use this error prone implicit cast. Compare to end-iterator or use is_valid(), instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(343,20): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(390,49): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::FaceHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toOppositeFaceHandle,0}>::operator bool': Do not use this error prone implicit cast. Compare to end-iterator or use is_valid(), instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(392,22): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::FaceHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toOppositeFaceHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(394,39): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::FaceHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toOppositeFaceHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(395,19): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::FaceHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toOppositeFaceHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(429,20): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::operator bool': Do not use this error prone implicit cast. Compare to end-iterator or use is_valid(), instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(431,20): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(467,19): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_vertex_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{4,{flat}}' }',0}>::operator OpenMesh::VertexHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(468,17): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_vertex_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{4,{flat}}' }',0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(483,33): warning C4305: '引數': 從 'double' 轉換為 'GLfloat'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(486,24): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_face_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{16,{flat}}' }',0}>::operator OpenMesh::FaceHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(488,28): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(489,27): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(513,32): warning C4305: '引數': 從 'double' 轉換為 'GLfloat'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(517,24): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_face_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{16,{flat}}' }',0}>::operator OpenMesh::FaceHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(520,27): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(536,46): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::EdgeHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_edge_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{12,{flat}}' }',0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(582,46): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::EdgeHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_edge_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{12,{flat}}' }',0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(602,21): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_vertex_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{4,{flat}}' }',0}>::operator OpenMesh::VertexHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(610,41): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_vertex_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{4,{flat}}' }',0}>::operator OpenMesh::VertexHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(677,35): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::operator bool': Do not use this error prone implicit cast. Compare to end-iterator or use is_valid(), instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(679,11): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(681,23): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(682,24): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::operator OpenMesh::VertexHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(683,27): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::operator OpenMesh::VertexHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(689,11): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(691,75): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(695,24): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(696,25): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::operator OpenMesh::VertexHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(697,28): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::operator OpenMesh::VertexHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(740,12): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_vertex_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{4,{flat}}' }',0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(747,24): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::EdgeHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_edge_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{12,{flat}}' }',0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(748,18): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::EdgeHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_edge_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{12,{flat}}' }',0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(763,34): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::operator bool': Do not use this error prone implicit cast. Compare to end-iterator or use is_valid(), instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(765,14): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::operator OpenMesh::VertexHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(766,13): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(770,34): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::EdgeHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toEdgeHandle,0}>::operator bool': Do not use this error prone implicit cast. Compare to end-iterator or use is_valid(), instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(772,14): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::EdgeHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toEdgeHandle,0}>::operator OpenMesh::EdgeHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(773,13): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::EdgeHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toEdgeHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(774,14): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::EdgeHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toEdgeHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(777,34): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::operator bool': Do not use this error prone implicit cast. Compare to end-iterator or use is_valid(), instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(779,30): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::operator OpenMesh::VertexHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(781,15): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::EdgeHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toEdgeHandle,0}>::operator OpenMesh::EdgeHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(782,14): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::EdgeHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toEdgeHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(783,15): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::EdgeHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toEdgeHandle,0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(795,14): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::EdgeHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_edge_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{12,{flat}}' }',0}>::operator OpenMesh::EdgeHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(796,18): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::EdgeHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_edge_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{12,{flat}}' }',0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(837,20): warning C4018: '<': signed/unsigned 不相符
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(868,20): warning C4018: '<': signed/unsigned 不相符
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(844,33): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::EdgeHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_edge_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{12,{flat}}' }',0}>::operator OpenMesh::EdgeHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(847,36): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::EdgeHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_edge_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{12,{flat}}' }',0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(848,28): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::EdgeHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_edge_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{12,{flat}}' }',0}>::operator OpenMesh::EdgeHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(862,33): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::EdgeHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_edge_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{12,{flat}}' }',0}>::operator OpenMesh::EdgeHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(865,36): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::EdgeHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_edge_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{12,{flat}}' }',0}>::handle': This function clutters your code. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(971,21): warning C4018: '<': signed/unsigned 不相符
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(981,38): warning C4244: '引數': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(991,44): warning C4244: '引數': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(952,34): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_vertex_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{4,{flat}}' }',0}>::operator OpenMesh::VertexHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(964,69): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::operator OpenMesh::VertexHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(991,40): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_vertex_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{4,{flat}}' }',0}>::operator OpenMesh::VertexHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(1081,32): warning C4244: '=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(1102,21): warning C4018: '<': signed/unsigned 不相符
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(1109,47): warning C4244: '引數': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(1111,34): warning C4244: '=': 將 'double' 轉換為 '_Ty'，由於類型不同，可能導致資料遺失
           with
           [
               _Ty=float
           ]
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(1108,28): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_vertex_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{4,{flat}}' }',0}>::operator OpenMesh::VertexHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(1128,44): warning C4244: '引數': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(1119,36): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_face_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{16,{flat}}' }',0}>::operator OpenMesh::FaceHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(1121,36): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::operator OpenMesh::VertexHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(1136,34): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::FaceHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toFaceHandle,0}>::operator bool': Do not use this error prone implicit cast. Compare to end-iterator or use is_valid(), instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(1138,14): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::FaceHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toFaceHandle,0}>::operator OpenMesh::FaceHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(1139,32): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::FaceHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toFaceHandle,0}>::operator OpenMesh::FaceHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.26.28801\include\utility(152,23): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::EdgeHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_edge_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{12,{flat}}' }',0}>::operator OpenMesh::EdgeHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(792): message : 請參考正在進行編譯的函式 樣板 具現化 'std::pair<double,OpenMesh::PolyConnectivity::EHandle>::pair<double,OpenMesh::PolyConnectivity::EIter&,0>(_Other1 &&,_Other2) noexcept(false)'
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(1111,28): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_vertex_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{4,{flat}}' }',0}>::operator OpenMesh::VertexHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(1131,44): warning C4244: '引數': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(1122,36): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_face_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{16,{flat}}' }',0}>::operator OpenMesh::FaceHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(1124,36): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::FaceHandle,OpenMesh::ArrayKernel::VertexHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toVertexHandle,0}>::operator OpenMesh::VertexHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(1139,34): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::FaceHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toFaceHandle,0}>::operator bool': Do not use this error prone implicit cast. Compare to end-iterator or use is_valid(), instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(1141,14): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::FaceHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toFaceHandle,0}>::operator OpenMesh::FaceHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(1142,32): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::FaceHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toFaceHandle,0}>::operator OpenMesh::FaceHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\utility(192,23): warning C4996: 'OpenMesh::Iterators::GenericIteratorT<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::EdgeHandle,OpenMesh::ArrayKernel,{&OpenMesh::ArrayKernel::has_edge_status,0},{&OpenMesh::ArrayKernel::[thunk]: __thiscall OpenMesh::ArrayKernel::`vcall'{12,{flat}}' }',0}>::operator OpenMesh::EdgeHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(795): message : 請參考正在進行編譯的函式 樣板 具現化 'std::pair<double,OpenMesh::PolyConnectivity::EHandle>::pair<double,OpenMesh::PolyConnectivity::EIter&,0>(_Other1 &&,_Other2) noexcept(false)'
           with
           [
               _Other1=double,
               _Other2=OpenMesh::PolyConnectivity::EIter &
           ]
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(792): message : 請參考正在進行編譯的函式 樣板 具現化 'std::pair<double,OpenMesh::PolyConnectivity::EHandle>::pair<double,OpenMesh::PolyConnectivity::EIter&,0>(_Other1 &&,_Other2) noexcept(false)'
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(795): message : 請參考正在進行編譯的函式 樣板 具現化 'std::pair<double,OpenMesh::PolyConnectivity::EHandle>::pair<double,OpenMesh::PolyConnectivity::EIter&,0>(_Other1 &&,_Other2) noexcept(false)'
           with
           [
               _Other1=double,
               _Other2=OpenMesh::PolyConnectivity::EIter &
           ]
   MyForm.cpp
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\MyForm.h(351,21): warning C4101: 'tmpedge': 未參考的區域變數
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\MyForm.cpp(6,1): warning C4829: 函式 main 的參數可能不正確。請考慮 'int main(Platform::Array<Platform::String^>^ argv)'
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\MyForm.h(354,21): warning C4101: 'tmpedge': 未參考的區域變數
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\MyForm.cpp(6,1): warning C4829: 函式 main 的參數可能不正確。請考慮 'int main(Platform::Array<Platform::String^>^ argv)'
+  .NETFramework,Version=v4.5.2.AssemblyAttributes.cpp
   正在產生程式碼...
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\MyForm.cpp : warning C4793: 'OpenMesh::ArrayKernel::`vcall'{16}'': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\MyForm.cpp : warning C4793: 'OpenMesh::ArrayKernel::`vcall'{16}'': 函式會編譯成機器碼:
   	非 clrcall 的 vcall Thunk 必須編譯為原生
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp : warning C4793: 'OpenMesh::ArrayKernel::`vcall'{16}'': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp : warning C4793: 'OpenMesh::ArrayKernel::`vcall'{16}'': 函式會編譯成機器碼:
   	非 clrcall 的 vcall Thunk 必須編譯為原生
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp : warning C4793: 'OpenMesh::ArrayKernel::`vcall'{12}'': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp : warning C4793: 'OpenMesh::ArrayKernel::`vcall'{12}'': 函式會編譯成機器碼:
   	非 clrcall 的 vcall Thunk 必須編譯為原生
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp : warning C4793: 'OpenMesh::ArrayKernel::`vcall'{4}'': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp : warning C4793: 'OpenMesh::ArrayKernel::`vcall'{4}'': 函式會編譯成機器碼:
   	非 clrcall 的 vcall Thunk 必須編譯為原生
-D:\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp : warning C4793: 'OpenMesh::ArrayKernel::`vcall'{8}'': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp : warning C4793: 'OpenMesh::ArrayKernel::`vcall'{8}'': 函式會編譯成機器碼:
   	非 clrcall 的 vcall Thunk 必須編譯為原生
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(359): warning C4793: 'Eigen::internal::pstore<double,__m128d>': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(359): warning C4793: 'Eigen::internal::pstore<double,__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(362): warning C4793: 'Eigen::internal::pstoreu<double,__m128d>': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(362): warning C4793: 'Eigen::internal::pstoreu<double,__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(360): warning C4793: 'Eigen::internal::pstore<int,__m128i>': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(360): warning C4793: 'Eigen::internal::pstore<int,__m128i>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(364): warning C4793: 'Eigen::internal::pstoreu<int,__m128i>': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(364): warning C4793: 'Eigen::internal::pstoreu<int,__m128i>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(577): warning C4793: 'Eigen::internal::predux<__m128i>': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(577): warning C4793: 'Eigen::internal::predux<__m128i>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(577): warning C4793: 'Eigen::internal::predux<__m128i>': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(577): warning C4793: 'Eigen::internal::predux<__m128i>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(578): warning C4793: 'Eigen::internal::predux<__m128i>': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(578): warning C4793: 'Eigen::internal::predux<__m128i>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(560): warning C4793: 'Eigen::internal::predux<__m128d>': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(560): warning C4793: 'Eigen::internal::predux<__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(560): warning C4793: 'Eigen::internal::predux<__m128d>': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(560): warning C4793: 'Eigen::internal::predux<__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(200): warning C4793: 'Eigen::internal::padd<__m128i>': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(200): warning C4793: 'Eigen::internal::padd<__m128i>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(434): warning C4793: 'Eigen::internal::pfirst<__m128i>': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(434): warning C4793: 'Eigen::internal::pfirst<__m128i>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(199): warning C4793: 'Eigen::internal::padd<__m128d>': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(199): warning C4793: 'Eigen::internal::padd<__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(433): warning C4793: 'Eigen::internal::pfirst<__m128d>': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(433): warning C4793: 'Eigen::internal::pfirst<__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(307): warning C4793: 'Eigen::internal::pload<__m128d>': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(307): warning C4793: 'Eigen::internal::pload<__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(336): warning C4793: 'Eigen::internal::ploadu<__m128d>': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(336): warning C4793: 'Eigen::internal::ploadu<__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(308): warning C4793: 'Eigen::internal::pload<__m128i>': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(308): warning C4793: 'Eigen::internal::pload<__m128i>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(341): warning C4793: 'Eigen::internal::ploadu<__m128i>': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(341): warning C4793: 'Eigen::internal::ploadu<__m128i>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(179): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(179): warning C4793: 'Eigen::internal::pset1<__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(179): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(180): warning C4793: 'Eigen::internal::pset1<__m128i>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(180): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(226): warning C4793: 'Eigen::internal::pmul<__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(180): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\MathFunctions.h(554): warning C4793: 'Eigen::numext::sqrt<double>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(204): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\MathFunctions.h(554): warning C4793: 'Eigen::numext::sqrt<double>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(205): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\util\Memory.h(945): warning C4793: 'Eigen::internal::queryCacheSizes': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(207): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(770): warning C4793: 'Eigen::internal::palign_impl<1,__m128d>::run': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(208): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(770): warning C4793: 'Eigen::internal::palign_impl<1,__m128d>::run': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(213): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(770): warning C4793: 'Eigen::internal::palign_impl<1,__m128d>::run': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(214): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(770): warning C4793: 'Eigen::internal::palign_impl<1,__m128d>::run': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(216): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(771): warning C4793: 'Eigen::internal::palign_impl<1,__m128d>::run': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(217): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(771): warning C4793: 'Eigen::internal::palign_impl<1,__m128d>::run': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(226): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(771): warning C4793: 'Eigen::internal::palign_impl<1,__m128d>::run': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(227): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(771): warning C4793: 'Eigen::internal::palign_impl<1,__m128d>::run': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(228): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(770): warning C4793: 'Eigen::internal::palign_impl<2,__m128d>::run': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(228): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(770): warning C4793: 'Eigen::internal::palign_impl<2,__m128d>::run': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(230): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(770): warning C4793: 'Eigen::internal::palign_impl<2,__m128d>::run': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(231): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(770): warning C4793: 'Eigen::internal::palign_impl<2,__m128d>::run': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(232): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(771): warning C4793: 'Eigen::internal::palign_impl<2,__m128d>::run': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(232): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(771): warning C4793: 'Eigen::internal::palign_impl<2,__m128d>::run': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(235): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(771): warning C4793: 'Eigen::internal::palign_impl<2,__m128d>::run': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(235): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(771): warning C4793: 'Eigen::internal::palign_impl<2,__m128d>::run': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(236): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(770): warning C4793: 'Eigen::internal::palign_impl<3,__m128d>::run': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(236): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(770): warning C4793: 'Eigen::internal::palign_impl<3,__m128d>::run': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(237): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(770): warning C4793: 'Eigen::internal::palign_impl<3,__m128d>::run': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(237): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(770): warning C4793: 'Eigen::internal::palign_impl<3,__m128d>::run': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(237): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(771): warning C4793: 'Eigen::internal::palign_impl<3,__m128d>::run': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(238): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(771): warning C4793: 'Eigen::internal::palign_impl<3,__m128d>::run': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(238): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(771): warning C4793: 'Eigen::internal::palign_impl<3,__m128d>::run': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(238): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(771): warning C4793: 'Eigen::internal::palign_impl<3,__m128d>::run': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(241): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(651): warning C4793: 'Eigen::internal::predux_max<__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(242): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(651): warning C4793: 'Eigen::internal::predux_max<__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(243): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\util\Memory.h(925): warning C4793: 'Eigen::internal::queryCacheSizes_amd': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(243): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\util\Memory.h(928): warning C4793: 'Eigen::internal::queryCacheSizes_amd': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(245): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\util\Memory.h(809): warning C4793: 'Eigen::internal::queryCacheSizes_intel_direct': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(246): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\util\Memory.h(838): warning C4793: 'Eigen::internal::queryCacheSizes_intel_codes': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(247): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(203): warning C4793: 'Eigen::internal::psub<__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(247): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(244): warning C4793: 'Eigen::internal::pdiv<__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(250): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(784): warning C4793: 'Eigen::internal::ptranspose': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(250): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(785): warning C4793: 'Eigen::internal::ptranspose': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(251): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(420): warning C4793: 'Eigen::internal::prefetch<double>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(251): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(491): warning C4793: 'Eigen::internal::pbroadcast4<__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(252): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(491): warning C4793: 'Eigen::internal::pbroadcast4<__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(252): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(491): warning C4793: 'Eigen::internal::pbroadcast4<__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(252): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(492): warning C4793: 'Eigen::internal::pbroadcast4<__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(253): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(492): warning C4793: 'Eigen::internal::pbroadcast4<__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(253): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(492): warning C4793: 'Eigen::internal::pbroadcast4<__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(253): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(494): warning C4793: 'Eigen::internal::pbroadcast4<__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(256): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(494): warning C4793: 'Eigen::internal::pbroadcast4<__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(256): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(494): warning C4793: 'Eigen::internal::pbroadcast4<__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(257): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(495): warning C4793: 'Eigen::internal::pbroadcast4<__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(257): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(495): warning C4793: 'Eigen::internal::pbroadcast4<__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(258): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(495): warning C4793: 'Eigen::internal::pbroadcast4<__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(259): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(388): warning C4793: 'Eigen::internal::pscatter<double,__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(259): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(389): warning C4793: 'Eigen::internal::pscatter<double,__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(262): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(389): warning C4793: 'Eigen::internal::pscatter<double,__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(262): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(267): warning C4793: 'Eigen::internal::pmax<__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(263): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(263): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(264): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(264): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(264): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(265): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(265): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(265): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(268): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(268): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(269): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(269): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(270): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(270): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(270): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(271): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(271): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(271): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(274): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(275): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(275): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(276): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(276): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(279): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(280): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(280): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(281): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(281): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(283): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(284): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(287): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(287): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(288): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(288): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(289): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(289): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(289): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(289): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(290): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(290): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(290): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(290): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(293): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(294): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(297): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(297): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(298): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(298): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(299): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(299): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(299): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(299): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(300): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(300): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(300): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(300): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(302): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(302): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(306): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(309): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(310): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(310): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(311): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(311): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(313): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(314): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(317): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(318): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(318): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(319): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(319): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(323): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(323): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(324): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(324): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(325): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(325): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(326): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(326): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(327): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(327): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(328): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(328): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(329): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(329): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(330): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\LU\arch\Inverse_SSE.h(330): warning C4793: 'Eigen::internal::compute_inverse_size4<1,double,Eigen::Matrix<double,4,4,0,4,4>,Eigen::Matrix<double,4,4,0,4,4> >::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(179): warning C4793: 'Eigen::internal::pset1<__m128d>': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(180): warning C4793: 'Eigen::internal::pset1<__m128i>': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(226): warning C4793: 'Eigen::internal::pmul<__m128d>': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\MathFunctions.h(554): warning C4793: 'Eigen::numext::sqrt<double>': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\MathFunctions.h(554): warning C4793: 'Eigen::numext::sqrt<double>': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\util\Memory.h(945): warning C4793: 'Eigen::internal::queryCacheSizes': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(770): warning C4793: 'Eigen::internal::palign_impl<1,__m128d>::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(770): warning C4793: 'Eigen::internal::palign_impl<1,__m128d>::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(770): warning C4793: 'Eigen::internal::palign_impl<1,__m128d>::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(770): warning C4793: 'Eigen::internal::palign_impl<1,__m128d>::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(771): warning C4793: 'Eigen::internal::palign_impl<1,__m128d>::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(771): warning C4793: 'Eigen::internal::palign_impl<1,__m128d>::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(771): warning C4793: 'Eigen::internal::palign_impl<1,__m128d>::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(771): warning C4793: 'Eigen::internal::palign_impl<1,__m128d>::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(770): warning C4793: 'Eigen::internal::palign_impl<2,__m128d>::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(770): warning C4793: 'Eigen::internal::palign_impl<2,__m128d>::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(770): warning C4793: 'Eigen::internal::palign_impl<2,__m128d>::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(770): warning C4793: 'Eigen::internal::palign_impl<2,__m128d>::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(771): warning C4793: 'Eigen::internal::palign_impl<2,__m128d>::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(771): warning C4793: 'Eigen::internal::palign_impl<2,__m128d>::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(771): warning C4793: 'Eigen::internal::palign_impl<2,__m128d>::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(771): warning C4793: 'Eigen::internal::palign_impl<2,__m128d>::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(770): warning C4793: 'Eigen::internal::palign_impl<3,__m128d>::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(770): warning C4793: 'Eigen::internal::palign_impl<3,__m128d>::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(770): warning C4793: 'Eigen::internal::palign_impl<3,__m128d>::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(770): warning C4793: 'Eigen::internal::palign_impl<3,__m128d>::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(771): warning C4793: 'Eigen::internal::palign_impl<3,__m128d>::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(771): warning C4793: 'Eigen::internal::palign_impl<3,__m128d>::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(771): warning C4793: 'Eigen::internal::palign_impl<3,__m128d>::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(771): warning C4793: 'Eigen::internal::palign_impl<3,__m128d>::run': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(651): warning C4793: 'Eigen::internal::predux_max<__m128d>': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(651): warning C4793: 'Eigen::internal::predux_max<__m128d>': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\util\Memory.h(925): warning C4793: 'Eigen::internal::queryCacheSizes_amd': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\util\Memory.h(928): warning C4793: 'Eigen::internal::queryCacheSizes_amd': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\util\Memory.h(809): warning C4793: 'Eigen::internal::queryCacheSizes_intel_direct': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\util\Memory.h(838): warning C4793: 'Eigen::internal::queryCacheSizes_intel_codes': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(203): warning C4793: 'Eigen::internal::psub<__m128d>': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(244): warning C4793: 'Eigen::internal::pdiv<__m128d>': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(784): warning C4793: 'Eigen::internal::ptranspose': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(785): warning C4793: 'Eigen::internal::ptranspose': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(420): warning C4793: 'Eigen::internal::prefetch<double>': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(491): warning C4793: 'Eigen::internal::pbroadcast4<__m128d>': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(491): warning C4793: 'Eigen::internal::pbroadcast4<__m128d>': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(491): warning C4793: 'Eigen::internal::pbroadcast4<__m128d>': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(492): warning C4793: 'Eigen::internal::pbroadcast4<__m128d>': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(492): warning C4793: 'Eigen::internal::pbroadcast4<__m128d>': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(492): warning C4793: 'Eigen::internal::pbroadcast4<__m128d>': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(494): warning C4793: 'Eigen::internal::pbroadcast4<__m128d>': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(494): warning C4793: 'Eigen::internal::pbroadcast4<__m128d>': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(494): warning C4793: 'Eigen::internal::pbroadcast4<__m128d>': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(495): warning C4793: 'Eigen::internal::pbroadcast4<__m128d>': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(495): warning C4793: 'Eigen::internal::pbroadcast4<__m128d>': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(495): warning C4793: 'Eigen::internal::pbroadcast4<__m128d>': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(388): warning C4793: 'Eigen::internal::pscatter<double,__m128d>': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(389): warning C4793: 'Eigen::internal::pscatter<double,__m128d>': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(389): warning C4793: 'Eigen::internal::pscatter<double,__m128d>': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(267): warning C4793: 'Eigen::internal::pmax<__m128d>': 函式會編譯成機器碼:
-  	找到受控碼中不支援的內建
-D:\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(372): warning C4793: 'Eigen::internal::pgather<double,__m128d>': 函式會編譯成機器碼:
+F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(372): warning C4793: 'Eigen::internal::pgather<double,__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
   DotNetUitilities.obj : 發現 MSIL 模組。MSIL 的累加連結已停用。正在執行完整連結
-  OpenMesh_EX.vcxproj -> D:\MeshQEM-Skeleton\OpenMesh_EX\Debug\OpenMesh_EX.exe
+  OpenMesh_EX.vcxproj -> F:\DG\project1\MeshQEM-Skeleton\OpenMesh_EX\Debug\OpenMesh_EX.exe

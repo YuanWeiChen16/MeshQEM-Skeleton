@@ -254,7 +254,7 @@ public:
 	void Render_Wireframe();
 	void Render_Point();
 	void Model_Init_Property();
-	void simplification();
+	bool simplification();
 	bool Checkangle(EdgeHandle eh);
 	void ErrorQuadricsMatrix();
 	void UpdateErrorMatrix(VertexHandle vh);

@@ -6,6 +6,8 @@
 
 Tri_Mesh *mesh;
 std::vector<Tri_Mesh> mesh_serial;
+int faceCount;
+int Allcount = 99;
 xform xf;
 GLCamera camera;
 float fov = 0.7f;
@@ -315,6 +317,7 @@ namespace OpenMesh_EX {
 		//test Update ErrorMatrix
 		mesh->Model_Init_Property();
 		mesh->ErrorQuadricsMatrix();
+		faceCount = mesh->n_faces();
 		//mesh->testBox();
 		hkoglPanelControl1->Invalidate();
 	}
@@ -351,10 +354,34 @@ namespace OpenMesh_EX {
 				int count = 0 , tmpedge;
 			   if (e->KeyCode == Keys::S)
 			   {
-
-				   mesh->simplification();
-				   mesh->update_face_normals();
-				   mesh_serial.push_back(*mesh);
+				   while (Allcount > 1)
+				   {
+					   if (mesh->simplification())
+					   {
+						   mesh->update_face_normals();
+						   if (mesh->n_faces() < faceCount * (Allcount / 100.0))
+						   {
+							   mesh_serial.push_back(*mesh);
+							   std::cout << Allcount << " % Model Save\n";
+							   Allcount -= 1;
+						   }
+						   //mesh_serial.push_back(*mesh);
+						   //mesh_face_count.push_back((*mesh).n_faces());
+					   }
+					   else break;
+				   }
+				   //if (mesh->simplification()) 
+				   //{
+					  // mesh->update_face_normals();
+					  // if (mesh->n_faces() < faceCount * (count / 100.0))
+					  // {
+						 //  mesh_serial.push_back(*mesh);
+						 //  std::cout << count << " % Model Save\n";
+						 //  count -= 1;
+					  // }
+					  // //mesh_serial.push_back(*mesh);
+					  // //mesh_face_count.push_back((*mesh).n_faces());
+				   //}
 				   hkoglPanelControl1->Invalidate();
 				   /*
 				   while (mesh->n_edges() > (int)(original_edge_size*0.1))

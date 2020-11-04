@@ -616,8 +616,9 @@ void Tri_Mesh::Model_Init_Property()
 	this->add_property(this->Ai, AiName);
 }
 
-void Tri_Mesh::simplification()
+bool Tri_Mesh::simplification()
 {
+	//std::cout << "face Count: " << n_faces() << "\n";
 	int count = 0;
 	int index = 0;
 	EdgeHandle eh;
@@ -625,6 +626,7 @@ void Tri_Mesh::simplification()
 	Eigen::Vector4d etmpv;
 	OpenMesh::Vec3d tmpv;
 	std::vector <std::pair<double, EHandle>>::iterator ep_iter;
+
 	for (ep_iter = ErrorPrority.begin(); ep_iter != ErrorPrority.end(); ++ep_iter)
 	{
 		eh = edge_handle(ep_iter->second.idx());
@@ -648,7 +650,7 @@ void Tri_Mesh::simplification()
 				UpdateErrorMatrix(to);
 				garbage_collection();
 				UpdateErrorVector();
-				break;
+				return true;
 			}
 			else
 			{
@@ -656,6 +658,7 @@ void Tri_Mesh::simplification()
 			}
 		}
 	}
+	return false;
 }
 bool Tri_Mesh::Checkangle(EdgeHandle eh)
 {
@@ -1155,7 +1158,7 @@ double Tri_Mesh::cal_Qe(EdgeHandle eh)
 	Eigen::Vector4d B(0, 0, 0, 1);
 	qij.row(3) = B;
 	//qij = qij.inverse().eval();
-	Eigen::Vector4d NewVertex = qij.colPivHouseholderQr().solve(B);
+	Eigen::Vector4d NewVertex = qij.partialPivLu().solve(B);
 	double Qe = NewVertex.transpose() * (Qbar * NewVertex);
 
 	this->property(NewVertexHandle, eh) = NewVertex;
