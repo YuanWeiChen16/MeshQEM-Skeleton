@@ -13,7 +13,8 @@
 #include <gl/glu.h>
 #include <utility>
 #include <cstdlib>
-
+#include <time.h>
+#include <set>
 struct Face_InnerAngle
 {
 	double Vertex_Angle[3];
@@ -216,6 +217,19 @@ namespace OMP//OpenMesh Polygonal mesh
 	};
 }
 /*======================================================================*/
+class ErrorData
+{
+public:
+	ErrorData() {};
+	ErrorData(double q, OpenMesh::EdgeHandle e) : Qe(q), eh(e) {}
+	double Qe;
+	OpenMesh::EdgeHandle eh;
+	bool operator < (const ErrorData& d) const
+	{
+		return Qe < d.Qe;
+	}
+
+};
 class Tri_Mesh:public OMT::Model
 {
 public:
@@ -243,7 +257,7 @@ public:
 	GLint MeshVBO;
 	
 	std::vector <std::pair<double, EHandle>> ErrorPrority;
-
+	std::set <ErrorData> Errorprority;
 	std::vector<double*> pair;
 	std::vector<double*> pts;
 	std::vector<Point> points;
@@ -278,14 +292,16 @@ private:
 	std::string QeName = "Qe";
 	OpenMesh::EPropHandleT<Eigen::Vector4d> NewVertexHandle;
 	std::string NewVertexName = "NVe";
-	void cal_Qv(VertexHandle vh);
+	void cal_Qv(VertexHandle vh, std::map<int, Eigen::Vector4d>& plane);
 	double cal_Qe(EdgeHandle eh);
 OpenMesh::HPropHandleT<float> Wi;
 	std::string WiName = "Wi";
 	OpenMesh::VPropHandleT<float> WH;
 	std::string WHName = "WH";
 	OpenMesh::VPropHandleT<float> Ai;
-	std::string AiName = "Ai";};
+	std::string AiName = "Ai";
+};
+
 
 ///*======================================================================*/
 /*======================================================================*/

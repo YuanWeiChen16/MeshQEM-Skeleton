@@ -625,31 +625,46 @@ bool Tri_Mesh::simplification()
 	bool colsw = false;
 	Eigen::Vector4d etmpv;
 	OpenMesh::Vec3d tmpv;
-	std::vector <std::pair<double, EHandle>>::iterator ep_iter;
+	//std::vector <std::pair<double, EHandle>>::iterator ep_iter;
 
-	for (ep_iter = ErrorPrority.begin(); ep_iter != ErrorPrority.end(); ++ep_iter)
+	//for (ep_iter = ErrorPrority.begin(); ep_iter != ErrorPrority.end(); ++ep_iter)
+	for (auto ep_iter = Errorprority.begin(); ep_iter != Errorprority.end(); ++ep_iter)
 	{
-		eh = edge_handle(ep_iter->second.idx());
-
+		//eh = edge_handle(ep_iter->second.idx());
+		eh = edge_handle(ep_iter->eh.idx());
 		etmpv = property(NewVertexHandle, eh);
 		tmpv[0] = etmpv[0];
 		tmpv[1] = etmpv[1];
 		tmpv[2] = etmpv[2];
+		clock_t start, end;
+		start = clock();
 		if (Checkangle(eh))
 		{
+			end = clock();
+			//std::cout << double(end - start) / CLOCKS_PER_SEC << "\n";
 			HalfedgeHandle ehalf = halfedge_handle(eh, 1);
 			VHandle to = to_vertex_handle(ehalf);
 			VHandle from = from_vertex_handle(ehalf);
 			Point tmpto = point(to);
 			set_point(to,tmpv);
 			colsw = is_collapse_ok(ehalf);
-
+			end = clock();
+			//std::cout << double(end - start) / CLOCKS_PER_SEC << "\n";
 			if (colsw)
 			{
 				collapse(ehalf);
+				end = clock();
+				//std::cout << double(end - start) / CLOCKS_PER_SEC << "\n";
 				UpdateErrorMatrix(to);
+				end = clock();
+				//std::cout << double(end - start) / CLOCKS_PER_SEC << "\n";
 				garbage_collection();
+				end = clock();
+				//std::cout << double(end - start) / CLOCKS_PER_SEC << "\n";
 				UpdateErrorVector();
+				end = clock();
+				//std::cout << double(end - start) / CLOCKS_PER_SEC << "\n";
+				//std::cout << "\n";
 				return true;
 			}
 			else
@@ -735,20 +750,22 @@ bool Tri_Mesh::Checkangle(EdgeHandle eh)
 
 void Tri_Mesh::ErrorQuadricsMatrix()
 {
+	std::map <int, Eigen::Vector4d> plane;
 	for (VIter vh = vertices_begin(); vh != vertices_end(); ++vh)
 	{
-		cal_Qv(vh.handle());
+		cal_Qv(vh.handle(), plane);
 	}
 
-	ErrorPrority.resize(n_edges());
-
+	//ErrorPrority.resize(n_edges());
+	Errorprority.clear();
 	for (EIter eh = edges_begin(); eh != edges_end(); ++eh)
 	{
 		double Qe = cal_Qe(eh.handle());
-		ErrorPrority[eh.handle().idx()] = (std::pair<double, EdgeHandle>(Qe, eh.handle()));
+		//ErrorPrority[eh.handle().idx()] = (std::pair<double, EdgeHandle>(Qe, eh.handle()));
+		Errorprority.insert(ErrorData(Qe, eh));
 	}
 
-	std::sort(std::begin(ErrorPrority), std::end(ErrorPrority), ErrorCompare);
+	//std::sort(std::begin(ErrorPrority), std::end(ErrorPrority), ErrorCompare);
 
 	/*for (int i = 0; i < ErrorPrority.size(); i++)
 	{
@@ -758,12 +775,13 @@ void Tri_Mesh::ErrorQuadricsMatrix()
 
 void Tri_Mesh::UpdateErrorMatrix(VertexHandle vh)
 {
-	cal_Qv(vh);
+	std::map<int, Eigen::Vector4d> plane;
+	cal_Qv(vh, plane);
 
 	for (VVIter vvi = vv_begin(vh); vvi; ++vvi)
 	{
 		if (status(vvi).deleted()) continue;
-		cal_Qv(vvi.handle());
+		cal_Qv(vvi.handle(), plane);
 	}
 
 	std::map <int, bool> checkQe;
@@ -787,15 +805,18 @@ void Tri_Mesh::UpdateErrorMatrix(VertexHandle vh)
 
 void Tri_Mesh::UpdateErrorVector()
 {
-	ErrorPrority.clear();
-	std::vector<std::pair<double, EHandle>>().swap(ErrorPrority);
-	ErrorPrority.resize(n_edges());
+	//ErrorPrority.clear();
+	Errorprority.clear();
+	//std::vector<std::pair<double, EHandle>>().swap(ErrorPrority);
+	//ErrorPrority.resize(n_edges());
 	for (EIter ei = edges_begin(); ei != edges_end(); ++ei)
 	{
-		if (status(ei).deleted()) ErrorPrority[ei.handle().idx()] = (std::pair<double, EdgeHandle>(DBL_MAX, ei));
-		ErrorPrority[ei.handle().idx()] = (std::pair<double, EdgeHandle>(this->property(QeHandle, ei), ei));
+		//if (status(ei).deleted()) ErrorPrority[ei.handle().idx()] = (std::pair<double, EdgeHandle>(DBL_MAX, ei));
+		//else ErrorPrority[ei.handle().idx()] = (std::pair<double, EdgeHandle>(this->property(QeHandle, ei), ei));
+		if (!status(ei).deleted()) Errorprority.insert(ErrorData(this->property(QeHandle, ei), ei));
+
 	}
-	std::sort(ErrorPrority.begin(), ErrorPrority.end(), ErrorCompare);
+	//std::sort(ErrorPrority.begin(), ErrorPrority.end(), ErrorCompare);
 }
 
 void Tri_Mesh::KillEdge()
@@ -1133,17 +1154,22 @@ double Tri_Mesh::MaketotalArea()
 	return totalArea / this->n_faces();
 }
 
-void Tri_Mesh::cal_Qv(VertexHandle vh)
+void Tri_Mesh::cal_Qv(VertexHandle vh, std::map<int, Eigen::Vector4d>& plane)
 {
 	Eigen::Matrix4d Qv = Eigen::Matrix4d::Zero();
 	for (VFIter vfh = vf_begin(vh); vfh; ++vfh)
 	{
 		if (status(vfh).deleted()) continue;
-		Normal fn = calc_face_normal(vfh);
-		Point v = point(vh);
-		Eigen::Vector4d q(fn[0], fn[1], fn[2], 0);
-		q[3] = fn[0] * -v[0] + fn[1] * -v[1] + fn[2] * -v[2];
-		Qv += q * q.transpose();
+		int id = vfh.handle().idx();
+		if (plane.find(id) != plane.end())
+			Qv = plane[id] * plane[id].transpose();
+		else {
+			Normal fn = calc_face_normal(vfh);
+			Point v = point(vh);
+			Eigen::Vector4d q(fn[0], fn[1], fn[2], 0);
+			q[3] = fn[0] * -v[0] + fn[1] * -v[1] + fn[2] * -v[2];
+			Qv += q * q.transpose();
+		}
 	}
 	this->property(QvHandle, vh) = Qv;
 }
