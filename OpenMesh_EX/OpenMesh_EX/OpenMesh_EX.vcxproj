@@ -80,6 +80,7 @@
       <AdditionalDependencies>glu32.lib;opengl32.lib;OpenMeshCore.lib</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
       <EntryPointSymbol>main</EntryPointSymbol>
+      <LargeAddressAware>true</LargeAddressAware>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

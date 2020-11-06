@@ -517,7 +517,9 @@ void Tri_Mesh::Render_SolidWireframe()
 		for (fv_it = fv_iter(f_it); fv_it; ++fv_it)
 		{
 			//glNormal3dv(normal(fv_it.handle()));
-			glVertex3dv(point(fv_it.handle()).data());
+			OpenMesh::Vec3d p = point(fv_it.handle());
+			p = p / scale;
+			glVertex3dv(p.data());
 		}
 	}
 	glEnd();
@@ -536,14 +538,21 @@ void Tri_Mesh::Render_SolidWireframe()
 		OMT::HEHandle _hedge = halfedge_handle(e_it.handle(), 1);
 
 		OMT::Point curVertex = point(from_vertex_handle(_hedge));
+		curVertex = curVertex / scale;
 		glVertex3dv(curVertex.data());
 
 		curVertex = point(to_vertex_handle(_hedge));
+		curVertex = curVertex / scale;
 		glVertex3dv(curVertex.data());
 	}
 	glEnd();
 	glPopAttrib();
-	std::vector<double*>::iterator pt_it;
+	glPointSize(100.0f);
+	glBegin(GL_POINTS);
+	glColor3f(1.0, 0, 0);
+	glVertex3d(0, 0, 0);
+	glEnd();
+	/*std::vector<double*>::iterator pt_it;
 	if (pair.size() > 0)
 	{
 		for (int i = 0; i < 2; i++)
@@ -565,7 +574,7 @@ void Tri_Mesh::Render_SolidWireframe()
 			glVertex3dv(*pt_it);
 			glEnd();
 		}
-	}
+	}*/
 }
 
 void Tri_Mesh::Render_Wireframe()
@@ -813,7 +822,7 @@ void Tri_Mesh::UpdateErrorVector()
 	{
 		//if (status(ei).deleted()) ErrorPrority[ei.handle().idx()] = (std::pair<double, EdgeHandle>(DBL_MAX, ei));
 		//else ErrorPrority[ei.handle().idx()] = (std::pair<double, EdgeHandle>(this->property(QeHandle, ei), ei));
-		if (!status(ei).deleted()) Errorprority.insert(ErrorData(this->property(QeHandle, ei), ei));
+		Errorprority.insert(ErrorData(this->property(QeHandle, ei), ei));
 
 	}
 	//std::sort(ErrorPrority.begin(), ErrorPrority.end(), ErrorCompare);

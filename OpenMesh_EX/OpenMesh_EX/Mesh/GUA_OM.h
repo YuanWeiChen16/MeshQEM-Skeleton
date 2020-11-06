@@ -252,7 +252,7 @@ public:
 	std::vector<OMT::VHandle>                  Extrme_Pt   ;
 	int t=0;
 	double OutsideWL = 1.0;
-
+	float scale = 1;
 	GLint MeshVAO;
 	GLint MeshVBO;
 	

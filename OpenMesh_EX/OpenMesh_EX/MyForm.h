@@ -354,7 +354,9 @@ namespace OpenMesh_EX {
 				int count = 0 , tmpedge;
 			   if (e->KeyCode == Keys::S)
 			   {
-				   while (Allcount > 1)
+				   clock_t start, end;
+				   start = clock();
+				   while (Allcount > 0)
 				   {
 					   if (mesh->simplification())
 					   {
@@ -370,6 +372,8 @@ namespace OpenMesh_EX {
 					   }
 					   else break;
 				   }
+				   end = clock();
+				   std::cout << double(end - start) / CLOCKS_PER_SEC << "\n";
 				   //if (mesh->simplification()) 
 				   //{
 					  // mesh->update_face_normals();
@@ -402,6 +406,14 @@ namespace OpenMesh_EX {
 					   hkoglPanelControl1->Invalidate();
 				   }*/
 			   }
+			   if (e->KeyCode == Keys::D)
+			   {
+				   mesh->scale = mesh->scale <= 0.01 ? 0.01 : mesh->scale / 10;
+			   }
+			   if (e->KeyCode == Keys::A)
+			   {
+				   mesh->scale = mesh->scale * 10;
+			   }
 		   }
 
 	private: System::Void hScroller_Scroll(System::Object^ sender, ScrollEventArgs^ e) {
@@ -409,8 +421,14 @@ namespace OpenMesh_EX {
 		{
 			float index = (mesh_serial.size()-1) - ((mesh_serial.size()-1)* ((hscroll->Value)/ (float)hscroll->Maximum));
 			std::cout << "value" << index << std::endl;
-			*mesh = mesh_serial[(int)index];
-			mesh->Render_SolidWireframe();
+			Tri_Mesh* temp = mesh;
+			if (&mesh_serial[(int)index] == NULL) {
+				std::cout << "Mesh Null.\n";
+			}
+			else {
+				*mesh = mesh_serial[(int)index];
+				mesh->Render_SolidWireframe();
+			}
 			hkoglPanelControl1->Invalidate();
 		//	std::cout << "size" << mesh_serial.size() << std::endl;
 		}
