@@ -1,5 +1,5 @@
 #include "GUA_OM.h"
-
+std::map <int, bool> deleteEdge;
 //#define DEBUG
 double PointAngle(Tri_Mesh::Point P1, Tri_Mesh::Point P2, Tri_Mesh::Point VPoint);
 namespace OMT
@@ -546,12 +546,12 @@ void Tri_Mesh::Render_SolidWireframe()
 		glVertex3dv(curVertex.data());
 	}
 	glEnd();
-	glPopAttrib();
-	glPointSize(100.0f);
-	glBegin(GL_POINTS);
-	glColor3f(1.0, 0, 0);
-	glVertex3d(0, 0, 0);
-	glEnd();
+	//glPopAttrib();
+	//glPointSize(100.0f);
+	//glBegin(GL_POINTS);
+	//glColor3f(1.0, 0, 0);
+	//glVertex3d(0, 0, 0);
+	//glEnd();
 	/*std::vector<double*>::iterator pt_it;
 	if (pair.size() > 0)
 	{
@@ -617,12 +617,13 @@ void Tri_Mesh::Model_Init_Property()
 {
 	this->add_property(QvHandle, QvName);
 	this->property(QvHandle, vertices_begin()) = Eigen::Matrix4d::Zero();
-
+	this->add_property(InitIDHandle, InitIDName);
 	this->add_property(QeHandle, QeName);
 	this->add_property(NewVertexHandle, NewVertexName);
 	this->add_property(this->Wi, WiName);
 	this->add_property(this->WH, WHName);
 	this->add_property(this->Ai, AiName);
+	deleteEdge.clear();
 }
 
 bool Tri_Mesh::simplification()
@@ -640,13 +641,15 @@ bool Tri_Mesh::simplification()
 	for (auto ep_iter = Errorprority.begin(); ep_iter != Errorprority.end(); ++ep_iter)
 	{
 		//eh = edge_handle(ep_iter->second.idx());
-		eh = edge_handle(ep_iter->eh.idx());
+		if (status(ep_iter->ei.handle()).deleted())continue;
+		eh = edge_handle(ep_iter->ei.handle().idx());
 		etmpv = property(NewVertexHandle, eh);
 		tmpv[0] = etmpv[0];
 		tmpv[1] = etmpv[1];
 		tmpv[2] = etmpv[2];
 		clock_t start, end;
 		start = clock();
+		std::map <int, double> checkQe;
 		if (Checkangle(eh))
 		{
 			end = clock();
@@ -664,13 +667,13 @@ bool Tri_Mesh::simplification()
 				collapse(ehalf);
 				end = clock();
 				//std::cout << double(end - start) / CLOCKS_PER_SEC << "\n";
-				UpdateErrorMatrix(to);
+				UpdateErrorMatrix(to, checkQe);
 				end = clock();
 				//std::cout << double(end - start) / CLOCKS_PER_SEC << "\n";
-				garbage_collection();
+				//garbage_collection();
 				end = clock();
 				//std::cout << double(end - start) / CLOCKS_PER_SEC << "\n";
-				UpdateErrorVector();
+				UpdateErrorVector(checkQe, n_edges());
 				end = clock();
 				//std::cout << double(end - start) / CLOCKS_PER_SEC << "\n";
 				//std::cout << "\n";
@@ -697,31 +700,55 @@ bool Tri_Mesh::Checkangle(EdgeHandle eh)
 	VHandle from = from_vertex_handle(ehalf);
 	pair.push_back(point(to).data());
 	pair.push_back(point(from).data());
-
-	for (VVIter vvit = vv_begin(to); vvit; ++vvit)
+	for (VEIter vei = ve_begin(to); vei; ++vei)
 	{
-		if (vvit.handle().idx() != to.idx() && vvit.handle().idx() != from.idx())
-		{
-			ring.push_back(vvit.handle().idx());
-			pts.push_back(point(vvit).data());
-			points.push_back(point(vvit));
-		}
+		if (status(vei).deleted()) continue;
+		HalfedgeHandle vehalf = halfedge_handle(vei, 1);
+		VHandle vto = to_vertex_handle(vehalf);
+		VHandle vfrom = from_vertex_handle(vehalf);
+		VHandle insertVertex = vto.idx() == to.idx() ? vfrom : vto;
+		if (insertVertex.idx() == from.idx()) continue;
+		points.push_back(point(insertVertex));
+	}
+	for (VEIter vei = ve_begin(from); vei; ++vei)
+	{
+		if (status(vei).deleted()) continue;
+		HalfedgeHandle vehalf = halfedge_handle(vei, 1);
+		VHandle vto = to_vertex_handle(vehalf);
+		VHandle vfrom = from_vertex_handle(vehalf);
+		VHandle insertVertex = vto.idx() == from.idx() ? vfrom : vto;
+		if (insertVertex.idx() == to.idx()) continue;
+		std::vector<int>::iterator target = find(ring.begin(), ring.end(), insertVertex.idx());
+
+		if (target == ring.end())
+			points.push_back(point(insertVertex));
 	}
 
-	for (VVIter vvit = vv_begin(from); vvit != vv_end(from); ++vvit)
-	{
-		if (vvit.handle().idx() != to.idx() && vvit.handle().idx() != from.idx())
-		{
-			std::vector<int>::iterator target = find(ring.begin(), ring.end(), vvit.handle().idx());
 
-			if (target == ring.end())
-			{
-				ring.push_back(vvit.handle().idx());
-				pts.push_back(point(vvit).data());
-				points.push_back(point(vvit));
-			}
-		}
-	}
+	//for (VVIter vvit = vv_begin(to); vvit; ++vvit)
+	//{
+	//	if (vvit.handle().idx() != to.idx() && vvit.handle().idx() != from.idx())
+	//	{
+	//		ring.push_back(vvit.handle().idx());
+	//		pts.push_back(point(vvit).data());
+	//		points.push_back(point(vvit));
+	//	}
+	//}
+
+	//for (VVIter vvit = vv_begin(from); vvit != vv_end(from); ++vvit)
+	//{
+	//	if (vvit.handle().idx() != to.idx() && vvit.handle().idx() != from.idx())
+	//	{
+	//		std::vector<int>::iterator target = find(ring.begin(), ring.end(), vvit.handle().idx());
+
+	//		if (target == ring.end())
+	//		{
+	//			ring.push_back(vvit.handle().idx());
+	//			pts.push_back(point(vvit).data());
+	//			points.push_back(point(vvit));
+	//		}
+	//	}
+	//}
 	//std::cout << "point size " <<  points.size()<< std::endl;
 	if (points.size() == 0)
 	{
@@ -769,9 +796,10 @@ void Tri_Mesh::ErrorQuadricsMatrix()
 	Errorprority.clear();
 	for (EIter eh = edges_begin(); eh != edges_end(); ++eh)
 	{
+		this->property(InitIDHandle, eh) = eh.handle().idx();
 		double Qe = cal_Qe(eh.handle());
+		Errorprority.insert(ErrorData(Qe, eh, this->property(InitIDHandle, eh)));
 		//ErrorPrority[eh.handle().idx()] = (std::pair<double, EdgeHandle>(Qe, eh.handle()));
-		Errorprority.insert(ErrorData(Qe, eh));
 	}
 
 	//std::sort(std::begin(ErrorPrority), std::end(ErrorPrority), ErrorCompare);
@@ -782,49 +810,102 @@ void Tri_Mesh::ErrorQuadricsMatrix()
 	}*/
 }
 
-void Tri_Mesh::UpdateErrorMatrix(VertexHandle vh)
+void Tri_Mesh::UpdateErrorMatrix(VertexHandle vh, std::map <int, double>& checkQe)
 {
+	//Errorprority.clear();
 	std::map<int, Eigen::Vector4d> plane;
 	cal_Qv(vh, plane);
-
+	
 	for (VVIter vvi = vv_begin(vh); vvi; ++vvi)
 	{
 		if (status(vvi).deleted()) continue;
 		cal_Qv(vvi.handle(), plane);
 	}
 
-	std::map <int, bool> checkQe;
+	//std::map <int, bool> checkQe;
 	for (VEIter vei = ve_begin(vh); vei; ++vei)
 	{
-		if (status(vei).deleted()) continue;
+		if (status(vei).deleted()) {
+			deleteEdge[vei.handle().idx()] = true;
+			continue;
+		}
 		cal_Qe(vei.handle());
-		checkQe[vei.handle().idx()] = true;
+		checkQe[this->property(InitIDHandle, vei)] = this->property(QeHandle, vei);
 	}
 
 	for (VVIter vvi = vv_begin(vh); vvi; ++vvi)
 	{
 		for (VEIter vei = ve_begin(vvi); vei; ++vei)
 		{
-			if (status(vei).deleted() || (checkQe.find(vei.handle().idx()) != checkQe.end())) continue;
+			if (status(vei).deleted() || (checkQe.find(vei.handle().idx()) != checkQe.end())) 
+			{
+				deleteEdge[vei.handle().idx()] = true;
+				continue;
+			}
 			cal_Qe(vei.handle());
-			checkQe[vei.handle().idx()] = true;
+			checkQe[this->property(InitIDHandle, vei)] = this->property(QeHandle, vei);
 		}
 	}
 }
 
-void Tri_Mesh::UpdateErrorVector()
+void Tri_Mesh::UpdateErrorVector(std::map <int, double>& checkQe, int edgeSize)
 {
 	//ErrorPrority.clear();
-	Errorprority.clear();
 	//std::vector<std::pair<double, EHandle>>().swap(ErrorPrority);
 	//ErrorPrority.resize(n_edges());
-	for (EIter ei = edges_begin(); ei != edges_end(); ++ei)
-	{
-		//if (status(ei).deleted()) ErrorPrority[ei.handle().idx()] = (std::pair<double, EdgeHandle>(DBL_MAX, ei));
-		//else ErrorPrority[ei.handle().idx()] = (std::pair<double, EdgeHandle>(this->property(QeHandle, ei), ei));
-		Errorprority.insert(ErrorData(this->property(QeHandle, ei), ei));
 
+	std::multiset <ErrorData>::iterator it = Errorprority.begin();
+	std::vector<ErrorData> insertData;
+	//insertData.resize(checkQe.size());
+	int n = 0;
+	int offset = 0;
+
+	while (it != Errorprority.end())
+	{
+		int id = it->ei.handle().idx();
+		if (is_valid_handle(it->ei) || !status(it->ei).deleted())
+		{
+			
+			if (checkQe.find(it->InitID) != checkQe.end())
+			{
+				
+				double qe = this->property(QeHandle, edge_handle(id));
+
+				insertData.push_back(ErrorData(this->property(QeHandle, it->ei), it->ei, this->property(InitIDHandle, it->ei)));
+				
+				it = Errorprority.erase(it);
+			}
+			else 
+			{
+				if (this->property(QeHandle, it->ei) != it->Qe)
+				{
+					//insertData.resize(offset + 1 + checkQe.size());
+					insertData.push_back(ErrorData(this->property(QeHandle, it->ei), it->ei, this->property(InitIDHandle, it->ei)));
+					it = Errorprority.erase(it);
+				}
+				else ++it;
+				
+			}
+		}
+		else 
+		{
+			it = Errorprority.erase(it);
+			
+		}
 	}
+	for (int i = 0; i < insertData.size(); i++)
+	{
+		Errorprority.insert(insertData[i]);
+	}
+
+	//Errorprority.clear();
+	//for (EIter ei = edges_begin(); ei != edges_end(); ++ei)
+	//{
+	//	//if (status(ei).deleted()) ErrorPrority[ei.handle().idx()] = (std::pair<double, EdgeHandle>(DBL_MAX, ei));
+	//	//else ErrorPrority[ei.handle().idx()] = (std::pair<double, EdgeHandle>(this->property(QeHandle, ei), ei));
+	//	Errorprority.insert(ErrorData(this->property(QeHandle, ei), ei, this->property(InitIDHandle, ei)));
+
+	//}
 	//std::sort(ErrorPrority.begin(), ErrorPrority.end(), ErrorCompare);
 }
 
@@ -860,46 +941,81 @@ void Tri_Mesh::KillEdge()
 
 void Tri_Mesh::testBox()
 {
-	OpenMesh::EPropHandleT<int> originID;
-	this->add_property(originID, "id");
-	std::cout << n_vertices() << " " << n_edges() << "\n";
-	std::cout << "\n\nVector\n";
-	for (int i = 0; i < ErrorPrority.size(); i++)
-	{
-		std::cout << ErrorPrority[i].second.idx() << "\n";
+	std::vector <EdgeIter> edgeVector;
+
+	//std::cout << n_vertices() << " " << n_edges() << "\n";
+	//std::cout << "\n\nVector\n";
+	for (std::multiset <ErrorData>::iterator it = Errorprority.begin(); it != Errorprority.end(); ++it)
+	{	
+		if(!is_valid_handle((*it).ei))
+			std::cout << "Invalid Edge!\n";
+		else 
+		{
+			EdgeIter ei = (*it).ei;
+			HHandle heh = halfedge_handle(ei, 0);
+			VHandle tov = to_vertex_handle(heh);
+			VHandle fromv = from_vertex_handle(heh);
+			std::cout << "Edge index: " << ei.handle().idx() << "\t" << fromv.idx() << "\t" << tov.idx() << "\t" << it->Qe << "\n";
+		}
 	}
-	EdgeHandle eh = edge_handle(ErrorPrority[0].second.idx());
+	//EdgeHandle eh = edge_handle(ErrorPrority[0].second.idx());
+	
+	edgeVector.resize(n_edges());
 	for (EIter ei = edges_begin(); ei != edges_end(); ++ei)
 	{
+		edgeVector[ei.handle().idx()] = ei;
 		HHandle heh = halfedge_handle(ei, 0);
 		VHandle tov = to_vertex_handle(heh);
 		VHandle fromv = from_vertex_handle(heh);
-		std::cout << "Edge index: " << ei.handle().idx() << "\t" << tov.idx() << "\t" << fromv.idx() << "\n";
-		this->property(originID, ei) = ei.handle().idx();
+		std::cout << "Edge index: " << ei.handle().idx() << "\t" << fromv.idx() << "\t" << tov.idx() << "\n";
+		this->property(InitIDHandle, ei) = ei.handle().idx();
 	}
-	HHandle eheh = halfedge_handle(eh, 0);
+	for (int i = 0; i < edgeVector.size(); i++)
+	{
+		HHandle heh = halfedge_handle(edgeVector[i], 0);
+		VHandle tov = to_vertex_handle(heh);
+		VHandle fromv = from_vertex_handle(heh);
+		std::cout << "edge ID: " << (edgeVector[i]).handle().idx() << "\t from: " << fromv.idx() << "\t to: " << tov.idx() << "\n";
+
+	}
+	HHandle eheh = halfedge_handle(edges_begin(), 0);
 	VHandle htov = to_vertex_handle(eheh);
 	VHandle hfromv = from_vertex_handle(eheh);
-	std::cout << "collapse edge: " << eh.idx() << "\t" << htov.idx() << "\t" << hfromv.idx() << "\n";
-
-	collapse_edge(halfedge_handle(eh, 0));
+	std::cout << "collapse edge: " << 0 << "\t" << htov.idx() << "\t" << hfromv.idx() << "\n";
+	std::map <int, double> checkQe;
+	collapse(halfedge_handle(edges_begin(), 0));
 	std::cout << n_vertices() << " " << n_edges() << "\n";
-	UpdateErrorMatrix(htov);
+	UpdateErrorMatrix(htov, checkQe);
 	garbage_collection();
-	UpdateErrorVector();
+	UpdateErrorVector(checkQe, n_edges());
+	
 	for (EIter ei = edges_begin(); ei != edges_end(); ++ei)
 	{
 		HHandle heh = halfedge_handle(ei, 0);
 		VHandle tov = to_vertex_handle(heh);
 		VHandle fromv = from_vertex_handle(heh);
-		std::cout << "Edge index: " << ei.handle().idx() << "\t" << tov.idx() << "\t" << fromv.idx() << "\t" << this->property(originID, ei) << "\n";
+		std::cout << "Edge index: " << ei.handle().idx() << "\t" << fromv.idx() << "\t" << tov.idx() << "\t" << this->property(InitIDHandle, ei) << "\n";
 	}
-	std::cout << "\n\nVector\n";
+	std::cout << "\n\n";
+	for (std::multiset <ErrorData>::iterator it = Errorprority.begin(); it != Errorprority.end(); ++it)
+	{
+		if (!is_valid_handle(it->ei))
+			std::cout << "Invalid Edge! " << it->ei.handle().idx() << "\n";
+		else
+		{
+			EdgeIter ei = it->ei;
+			HHandle heh = halfedge_handle(ei, 0);
+			VHandle tov = to_vertex_handle(heh);
+			VHandle fromv = from_vertex_handle(heh);
+			std::cout << "Edge index: " << ei.handle().idx() << "\t" << fromv.idx() << "\t" << tov.idx() << "\t" << it->Qe << "\n";
+		}
+	}
+	/*std::cout << "\n\nVector\n";
 	for (int i = 0; i < ErrorPrority.size(); i++)
 	{
 		std::cout << ErrorPrority[i].second.idx() << "\n";
 	}
-	std::cout << n_vertices() << " " << n_edges() << " " << "\n";
+	std::cout << n_vertices() << " " << n_edges() << " " << "\n";*/
 }
 
 void Tri_Mesh::Buffer()
@@ -928,6 +1044,10 @@ void Tri_Mesh::simplify()
 bool ErrorCompare(const std::pair<double, Tri_Mesh::EdgeHandle>& a, const std::pair<double, Tri_Mesh::EdgeHandle>& b)
 {
 	return a.first < b.first;
+}
+int returnEdgeSize()
+{
+	return deleteEdge.size();
 }
 double PointAngle(Tri_Mesh::Point P1, Tri_Mesh::Point P2, Tri_Mesh::Point VPoint)
 {
@@ -1161,6 +1281,71 @@ double Tri_Mesh::MaketotalArea()
 		totalArea += std::sqrtf(S*(S - a)*(S - b)*(S - c));
 	}
 	return totalArea / this->n_faces();
+}
+
+bool Tri_Mesh::saveFile()
+{
+	std::fstream obj;
+	obj.open("newModel.obj", std::ios::out);
+	if (!obj)
+	{
+		std::cout << "!Can't open " << "newModel" << std::endl;
+		return false;
+	}
+
+	/*for (int i = 0; i < Allmeshs.size(); i++)
+	{
+		Tri_Mesh temp = Allmeshs[i];
+		obj << "# face " << i << std::endl;
+		for (VIter viter = temp.vertices_begin(); viter != temp.vertices_end(); viter++) {
+			double* p = new double[3];
+			p = temp.point(viter.handle()).data();
+			std::cout << "Index: " << viter.handle().idx() << " " << p[0] << " " << p[1] << " " << p[2] << std::endl;
+			obj << "v " << p[0] << " " << p[1] << " " << p[2] << std::endl;
+		}
+		for (FIter fiter = temp.faces_begin(); fiter != temp.faces_end(); fiter++)
+		{
+			std::cout << "Index: " << fiter.handle().idx();
+			obj << "f";
+			for (FVIter fviter = temp.fv_iter(fiter); fviter; fviter++) {
+				std::cout << " " << fviter.handle().idx() + 1;
+				obj << " " << fviter.handle().idx() + 1;
+			}
+			std::cout << std::endl;
+			obj << std::endl;
+		}
+	}*/
+
+
+	for (VIter viter = vertices_begin(); viter != vertices_end(); viter++) {
+		double* p = new double[3];
+		p = point(viter.handle()).data();
+		//std::cout << "Index: " << viter.handle().idx() << " " << p[0] << " " << p[1] << " " << p[2] << std::endl;
+		obj << "v " << p[0] << " " << p[1] << " " << p[2] << std::endl;
+	}
+	for (FIter fiter = faces_begin(); fiter != faces_end(); fiter++)
+	{
+		//std::cout << "Index: " << fiter.handle().idx();
+		obj << "f";
+		for (FVIter fviter = fv_iter(fiter); fviter; fviter++) {
+			//std::cout << " " << fviter.handle().idx() + 1 + offsets[i];
+			obj << " " << fviter.handle().idx() + 1;
+		}
+		//std::cout << std::endl;
+		obj << std::endl;
+	}
+	obj.close();
+	return true;
+}
+
+int Tri_Mesh::faceSize()
+{
+	int count = 0;
+	for (FIter fit = faces_begin(); fit != faces_end(); ++fit)
+	{
+		if (!status(fit).deleted())count++;
+	}
+	return count;
 }
 
 void Tri_Mesh::cal_Qv(VertexHandle vh, std::map<int, Eigen::Vector4d>& plane)

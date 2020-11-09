@@ -6,7 +6,7 @@
 
 Tri_Mesh *mesh;
 std::vector<Tri_Mesh> mesh_serial;
-int faceCount;
+int edgeCount;
 int Allcount = 99;
 xform xf;
 GLCamera camera;
@@ -317,7 +317,8 @@ namespace OpenMesh_EX {
 		//test Update ErrorMatrix
 		mesh->Model_Init_Property();
 		mesh->ErrorQuadricsMatrix();
-		faceCount = mesh->n_faces();
+		edgeCount = mesh->n_faces();
+		//mesh->testBox();
 		//mesh->testBox();
 		hkoglPanelControl1->Invalidate();
 	}
@@ -352,6 +353,8 @@ namespace OpenMesh_EX {
 		   {
 				int original_edge_size = mesh->n_edges();
 				int count = 0 , tmpedge;
+				//int edgeNum = mesh->n_faces();
+				int edgeNum = 0;
 			   if (e->KeyCode == Keys::S)
 			   {
 				   clock_t start, end;
@@ -360,10 +363,14 @@ namespace OpenMesh_EX {
 				   {
 					   if (mesh->simplification())
 					   {
-						   mesh->update_face_normals();
-						   if (mesh->n_faces() < faceCount * (Allcount / 100.0))
+						   //mesh->update_face_normals();
+						   edgeNum = edgeCount - returnEdgeSize();
+						   if (edgeNum < edgeCount * (Allcount / 100.0))
 						   {
+							   
 							   mesh_serial.push_back(*mesh);
+							   mesh_serial[mesh_serial.size() - 1].garbage_collection();
+
 							   std::cout << Allcount << " % Model Save\n";
 							   Allcount -= 1;
 						   }
@@ -372,12 +379,14 @@ namespace OpenMesh_EX {
 					   }
 					   else break;
 				   }
+				   mesh->garbage_collection();
+				   std::cout << "edge: " << mesh->n_edges() << "\t" << edgeCount << "\n";
 				   end = clock();
 				   std::cout << double(end - start) / CLOCKS_PER_SEC << "\n";
 				   //if (mesh->simplification()) 
 				   //{
 					  // mesh->update_face_normals();
-					  // if (mesh->n_faces() < faceCount * (count / 100.0))
+					  // if (mesh->n_faces() < edgeCount * (count / 100.0))
 					  // {
 						 //  mesh_serial.push_back(*mesh);
 						 //  std::cout << count << " % Model Save\n";
@@ -413,6 +422,10 @@ namespace OpenMesh_EX {
 			   if (e->KeyCode == Keys::A)
 			   {
 				   mesh->scale = mesh->scale * 10;
+			   }
+			   if (e->KeyCode == Keys::F)
+			   {
+				   mesh->saveFile();
 			   }
 		   }
 

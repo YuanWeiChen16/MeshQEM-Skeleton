@@ -26,6 +26,8 @@ public:
 	std::vector<double> Har_val;
 };
 
+
+
 namespace OMT//OpenMesh Triangle mesh
 {
 	using namespace std;
@@ -217,16 +219,18 @@ namespace OMP//OpenMesh Polygonal mesh
 	};
 }
 /*======================================================================*/
+typedef OpenMesh::PolyMesh_ArrayKernelT<OMT::MyTraits> MyOpenMesh;
 class ErrorData
 {
 public:
-	ErrorData() {};
-	ErrorData(double q, OpenMesh::EdgeHandle e) : Qe(q), eh(e) {}
+	ErrorData() {}
+	ErrorData(double q, MyOpenMesh::EdgeIter e, int id) : Qe(q), ei(e), InitID(id) {}
 	double Qe;
-	OpenMesh::EdgeHandle eh;
+	MyOpenMesh::EdgeIter ei;
+	int InitID;
 	bool operator < (const ErrorData& d) const
 	{
-		return Qe < d.Qe;
+		return (Qe) < (d.Qe);
 	}
 
 };
@@ -257,7 +261,7 @@ public:
 	GLint MeshVBO;
 	
 	std::vector <std::pair<double, EHandle>> ErrorPrority;
-	std::set <ErrorData> Errorprority;
+	std::multiset <ErrorData> Errorprority;
 	std::vector<double*> pair;
 	std::vector<double*> pts;
 	std::vector<Point> points;
@@ -271,9 +275,9 @@ public:
 	bool simplification();
 	bool Checkangle(EdgeHandle eh);
 	void ErrorQuadricsMatrix();
-	void UpdateErrorMatrix(VertexHandle vh);
+	void UpdateErrorMatrix(VertexHandle vh, std::map <int, double>& checkQe);
 	//call after garbage collection
-	void UpdateErrorVector();
+	void UpdateErrorVector(std::map <int, double>& checkQe, int edgeSize);
 	void KillEdge();
 	void testBox();
 	void Buffer();
@@ -284,6 +288,8 @@ public:
 	void MakeLwi();
 	void MakeAreai();
 	double MaketotalArea();
+	bool saveFile();
+	int faceSize();
 
 private:
 	OpenMesh::VPropHandleT<Eigen::Matrix4d> QvHandle;
@@ -292,6 +298,8 @@ private:
 	std::string QeName = "Qe";
 	OpenMesh::EPropHandleT<Eigen::Vector4d> NewVertexHandle;
 	std::string NewVertexName = "NVe";
+	OpenMesh::EPropHandleT<int> InitIDHandle;
+	std::string InitIDName = "initID";
 	void cal_Qv(VertexHandle vh, std::map<int, Eigen::Vector4d>& plane);
 	double cal_Qe(EdgeHandle eh);
 OpenMesh::HPropHandleT<float> Wi;
@@ -308,6 +316,7 @@ OpenMesh::HPropHandleT<float> Wi;
 bool ReadFile(std::string _fileName, Tri_Mesh *_mesh); //讀取mesh資料
 bool SaveFile(std::string _fileName, Tri_Mesh *_mesh); //儲存mesh資料
 bool ErrorCompare(const std::pair<double, Tri_Mesh::EdgeHandle>& a, const std::pair<double, Tri_Mesh::EdgeHandle>& b);
+int returnEdgeSize();
 /*初始化view port設定函式*/
 
 #endif
