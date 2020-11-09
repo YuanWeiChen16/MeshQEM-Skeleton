@@ -638,10 +638,15 @@ bool Tri_Mesh::simplification(double& angleT, double& matrixT, double& vectorT)
 	//std::vector <std::pair<double, EHandle>>::iterator ep_iter;
 
 	//for (ep_iter = ErrorPrority.begin(); ep_iter != ErrorPrority.end(); ++ep_iter)
-	for (auto ep_iter = Errorprority.begin(); ep_iter != Errorprority.end(); ++ep_iter)
+	//for (auto ep_iter = Errorprority.begin(); ep_iter != Errorprority.end(); ++ep_iter)
+	std::multiset <ErrorData>::iterator ep_iter = Errorprority.begin();
+	while (ep_iter != Errorprority.end())
 	{
 		//eh = edge_handle(ep_iter->second.idx());
-		if (status(ep_iter->ei.handle()).deleted())continue;
+		if (status(ep_iter->ei.handle()).deleted()) {
+			ep_iter = Errorprority.erase(ep_iter);
+			continue;
+		}
 		eh = edge_handle(ep_iter->ei.handle().idx());
 		etmpv = property(NewVertexHandle, eh);
 		tmpv[0] = etmpv[0];
@@ -658,7 +663,7 @@ bool Tri_Mesh::simplification(double& angleT, double& matrixT, double& vectorT)
 			VHandle to = to_vertex_handle(ehalf);
 			VHandle from = from_vertex_handle(ehalf);
 			Point tmpto = point(to);
-			set_point(to,tmpv);
+			set_point(to, tmpv);
 			colsw = is_collapse_ok(ehalf);
 			end = clock();
 			angleT = double(end - start) / CLOCKS_PER_SEC;
@@ -685,8 +690,10 @@ bool Tri_Mesh::simplification(double& angleT, double& matrixT, double& vectorT)
 			else
 			{
 				set_point(to, tmpto);
+				++ep_iter;
 			}
 		}
+		else ++ep_iter;
 	}
 	return false;
 }
@@ -866,7 +873,7 @@ void Tri_Mesh::UpdateErrorVector(std::map <int, double>& checkQe, int edgeSize)
 	while (it != Errorprority.end())
 	{
 		int id = it->ei.handle().idx();
-		if (is_valid_handle(it->ei) || !status(it->ei).deleted())
+		if (is_valid_handle(it->ei) && !status(it->ei).deleted())
 		{
 			
 			if (checkQe.find(it->InitID) != checkQe.end())
