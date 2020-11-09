@@ -272,7 +272,7 @@ public:
 	void Render_Wireframe();
 	void Render_Point();
 	void Model_Init_Property();
-	bool simplification();
+	bool simplification(double& angleT, double& matrixT, double& vectorT);
 	bool Checkangle(EdgeHandle eh);
 	void ErrorQuadricsMatrix();
 	void UpdateErrorMatrix(VertexHandle vh, std::map <int, double>& checkQe);

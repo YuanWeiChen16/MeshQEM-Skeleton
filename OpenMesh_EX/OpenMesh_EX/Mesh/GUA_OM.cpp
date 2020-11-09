@@ -626,7 +626,7 @@ void Tri_Mesh::Model_Init_Property()
 	deleteEdge.clear();
 }
 
-bool Tri_Mesh::simplification()
+bool Tri_Mesh::simplification(double& angleT, double& matrixT, double& vectorT)
 {
 	//std::cout << "face Count: " << n_faces() << "\n";
 	int count = 0;
@@ -661,20 +661,23 @@ bool Tri_Mesh::simplification()
 			set_point(to,tmpv);
 			colsw = is_collapse_ok(ehalf);
 			end = clock();
+			angleT = double(end - start) / CLOCKS_PER_SEC;
 			//std::cout << double(end - start) / CLOCKS_PER_SEC << "\n";
 			if (colsw)
 			{
 				collapse(ehalf);
-				end = clock();
+				start = clock();
 				//std::cout << double(end - start) / CLOCKS_PER_SEC << "\n";
 				UpdateErrorMatrix(to, checkQe);
 				end = clock();
+				matrixT = double(end - start) / CLOCKS_PER_SEC;
 				//std::cout << double(end - start) / CLOCKS_PER_SEC << "\n";
 				//garbage_collection();
-				end = clock();
+				start = clock();
 				//std::cout << double(end - start) / CLOCKS_PER_SEC << "\n";
 				UpdateErrorVector(checkQe, n_edges());
 				end = clock();
+				vectorT = double(end - start) / CLOCKS_PER_SEC;
 				//std::cout << double(end - start) / CLOCKS_PER_SEC << "\n";
 				//std::cout << "\n";
 				return true;

@@ -317,7 +317,7 @@ namespace OpenMesh_EX {
 		//test Update ErrorMatrix
 		mesh->Model_Init_Property();
 		mesh->ErrorQuadricsMatrix();
-		edgeCount = mesh->n_faces();
+		edgeCount = mesh->n_edges();
 		//mesh->testBox();
 		//mesh->testBox();
 		hkoglPanelControl1->Invalidate();
@@ -355,23 +355,24 @@ namespace OpenMesh_EX {
 				int count = 0 , tmpedge;
 				//int edgeNum = mesh->n_faces();
 				int edgeNum = 0;
+				double angleT = 0, matrixT = 0, vectorT = 0;
 			   if (e->KeyCode == Keys::S)
 			   {
 				   clock_t start, end;
 				   start = clock();
 				   while (Allcount > 0)
 				   {
-					   if (mesh->simplification())
+					   if (mesh->simplification(angleT, matrixT, vectorT))
 					   {
 						   //mesh->update_face_normals();
 						   edgeNum = edgeCount - returnEdgeSize();
 						   if (edgeNum < edgeCount * (Allcount / 100.0))
 						   {
-							   
 							   mesh_serial.push_back(*mesh);
 							   mesh_serial[mesh_serial.size() - 1].garbage_collection();
 
 							   std::cout << Allcount << " % Model Save\n";
+							   std::cout << "angleT: " << angleT << "\tmatrixT: " << matrixT << "\tvectorT: " << vectorT << "\n";
 							   Allcount -= 1;
 						   }
 						   //mesh_serial.push_back(*mesh);
