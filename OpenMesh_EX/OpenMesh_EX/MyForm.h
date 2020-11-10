@@ -594,21 +594,38 @@ namespace OpenMesh_EX {
 		}
 	}
 	private: System::Void hkoglPanelControl1_executesimplify(System::Object^ sender, KeyEventArgs^ e)
-		   {
+	{
+		if (e->KeyCode == Keys::S)
+		{
+			double angleT = 0, matrixT = 0, vectorT = 0;
+			if (mesh->simplification(angleT, matrixT, vectorT))
+			{
+				if (mesh->simplification(angleT, matrixT, vectorT))
+				{
+					std::cout << "Simplify One Time.\n";
+					std::cout << "angleT: " << angleT << "\tmatrixT: " << matrixT << "\tvectorT: " << vectorT << "\n";
+					mesh->garbage_collection();
+					hkoglPanelControl1->Invalidate();
+					n_faces->Text = mesh->n_faces().ToString();
+					n_edges->Text = mesh->n_edges().ToString();
+				}
+				else std::cout << "Cannot Simplify.\n";
+			}
+		}
 				
-			   if (e->KeyCode == Keys::D)
-			   {
-				   mesh->scale = mesh->scale <= 0.01 ? 0.01 : mesh->scale / 10;
-			   }
-			   if (e->KeyCode == Keys::A)
-			   {
-				   mesh->scale = mesh->scale * 10;
-			   }
-			   if (e->KeyCode == Keys::F)
-			   {
-				   mesh->saveFile();
-			   }
-		   }
+		if (e->KeyCode == Keys::D)
+		{
+		   mesh->scale = mesh->scale <= 0.01 ? 0.01 : mesh->scale / 10;
+		}
+		if (e->KeyCode == Keys::A)
+		{
+		   mesh->scale = mesh->scale * 10;
+		}
+		if (e->KeyCode == Keys::F)
+		{
+		   mesh->saveFile();
+		}
+	}
 
 	private: System::Void hScrollBar1_Scroll(System::Object^ sender, System::Windows::Forms::ScrollEventArgs^ e) 
 	{
