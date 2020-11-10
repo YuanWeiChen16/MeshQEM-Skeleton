@@ -829,7 +829,7 @@ void Tri_Mesh::UpdateErrorMatrix(VertexHandle vh, std::map <int, double>& checkQ
 	//Errorprority.clear();
 	std::map<int, Eigen::Vector4d> plane;
 	cal_Qv(vh, plane);
-	
+
 	for (VVIter vvi = vv_begin(vh); vvi; ++vvi)
 	{
 		if (status(vvi).deleted()) continue;
@@ -851,7 +851,7 @@ void Tri_Mesh::UpdateErrorMatrix(VertexHandle vh, std::map <int, double>& checkQ
 	{
 		for (VEIter vei = ve_begin(vvi); vei; ++vei)
 		{
-			if (status(vei).deleted() || (checkQe.find(vei.handle().idx()) != checkQe.end())) 
+			if (status(vei).deleted() || (checkQe.find(vei.handle().idx()) != checkQe.end()))
 			{
 				deleteEdge[vei.handle().idx()] = true;
 				continue;
@@ -879,17 +879,17 @@ void Tri_Mesh::UpdateErrorVector(std::map <int, double>& checkQe, int edgeSize)
 		int id = it->ei.handle().idx();
 		if (is_valid_handle(it->ei) && !status(it->ei).deleted())
 		{
-			
+
 			if (checkQe.find(it->InitID) != checkQe.end())
 			{
-				
+
 				double qe = this->property(QeHandle, edge_handle(id));
 
 				insertData.push_back(ErrorData(this->property(QeHandle, it->ei), it->ei, this->property(InitIDHandle, it->ei)));
-				
+
 				it = Errorprority.erase(it);
 			}
-			else 
+			else
 			{
 				if (this->property(QeHandle, it->ei) != it->Qe)
 				{
@@ -898,13 +898,13 @@ void Tri_Mesh::UpdateErrorVector(std::map <int, double>& checkQe, int edgeSize)
 					it = Errorprority.erase(it);
 				}
 				else ++it;
-				
+
 			}
 		}
-		else 
+		else
 		{
 			it = Errorprority.erase(it);
-			
+
 		}
 	}
 	for (int i = 0; i < insertData.size(); i++)
@@ -960,10 +960,10 @@ void Tri_Mesh::testBox()
 	//std::cout << n_vertices() << " " << n_edges() << "\n";
 	//std::cout << "\n\nVector\n";
 	for (std::multiset <ErrorData>::iterator it = Errorprority.begin(); it != Errorprority.end(); ++it)
-	{	
-		if(!is_valid_handle((*it).ei))
+	{
+		if (!is_valid_handle((*it).ei))
 			std::cout << "Invalid Edge!\n";
-		else 
+		else
 		{
 			EdgeIter ei = (*it).ei;
 			HHandle heh = halfedge_handle(ei, 0);
@@ -973,7 +973,7 @@ void Tri_Mesh::testBox()
 		}
 	}
 	//EdgeHandle eh = edge_handle(ErrorPrority[0].second.idx());
-	
+
 	edgeVector.resize(n_edges());
 	for (EIter ei = edges_begin(); ei != edges_end(); ++ei)
 	{
@@ -1002,7 +1002,7 @@ void Tri_Mesh::testBox()
 	UpdateErrorMatrix(htov, checkQe);
 	garbage_collection();
 	UpdateErrorVector(checkQe, n_edges());
-	
+
 	for (EIter ei = edges_begin(); ei != edges_end(); ++ei)
 	{
 		HHandle heh = halfedge_handle(ei, 0);
@@ -1087,7 +1087,7 @@ void Tri_Mesh::LSMesh(int t)
 	Eigen::VectorXd Bx(this->n_vertices() * 2);
 	Eigen::VectorXd By(this->n_vertices() * 2);
 	Eigen::VectorXd Bz(this->n_vertices() * 2);
-	L.setZero();	
+	L.setZero();
 	Bx.setZero();
 	By.setZero();
 	Bz.setZero();
@@ -1108,7 +1108,7 @@ void Tri_Mesh::LSMesh(int t)
 	{
 		this->OutsideWL = this->OutsideWL * this->InitSL;
 	}
-
+	int persent = 0;
 	//make matrix================================================================================================================
 	for (Tri_Mesh::VertexIter VI = this->vertices_begin(); VI != this->vertices_end(); ++VI)
 	{
@@ -1135,7 +1135,7 @@ void Tri_Mesh::LSMesh(int t)
 		for (int i = 0; i < ThisA_Array_List.size(); i++)
 		{
 			//L.insert(VI->idx(), ThisA_Array_List[i]) = ((-ThisA_Array[i]) / ABigWi)*WL;
-			L.insert(VI->idx(), ThisA_Array_List[i]) = (ThisA_Array[i])*this->OutsideWL;			
+			L.insert(VI->idx(), ThisA_Array_List[i]) = (ThisA_Array[i])*this->OutsideWL;
 			//std::cout << (ThisA_Array[i])*WL << "  ";
 			//Heron's Formula
 			double a = (midPoint - tempPoint[(i) % tempPoint.size()]).length();
@@ -1145,6 +1145,14 @@ void Tri_Mesh::LSMesh(int t)
 			At += std::sqrtf(S*(S - a)*(S - b)*(S - c));
 		}
 
+
+		if (At < 0.000001)
+		{
+			At = A0;
+		}
+
+
+
 		double Whi = 0;
 		if (t == 0)
 		{
@@ -1152,17 +1160,25 @@ void Tri_Mesh::LSMesh(int t)
 		}
 		else
 		{
-			Whi = std::sqrtf(this->property(Ai, VI) / At);
+			Whi = std::sqrtf(A0 / At);
 		}
 		int j = VI->idx();
 		//init B
 		L.insert(j, j) = (-1) * ABigWi * this->OutsideWL;
 		//std::cout << "total wight " << (-1) * ABigWi * WL << std::endl;
-		L.insert(j + this->n_vertices(), j) = 1.0*Whi;		
+		L.insert(j + this->n_vertices(), j) = 1.0*Whi;
 
 		Bx[j + this->n_vertices()] = this->point(*VI)[0] * Whi;
 		By[j + this->n_vertices()] = this->point(*VI)[1] * Whi;
 		Bz[j + this->n_vertices()] = this->point(*VI)[2] * Whi;
+
+
+		if (VI->idx() % (this->n_vertices() / 10) == 0)
+		{
+
+			std::cout<< persent <<"%"<<std::endl;
+			persent += 10;
+		}
 
 		//std::cout << "vertex X " << Bx[j + this->n_vertices()] << " Y " << By[j + this->n_vertices()] << " Z " << Bz[j + this->n_vertices()] << std::endl;
 	}
@@ -1179,37 +1195,32 @@ void Tri_Mesh::LSMesh(int t)
 	Bx = L.transpose()*Bx;
 	By = L.transpose()*By;
 	Bz = L.transpose()*Bz;
-	L = L.transpose()*L;	
+	L = L.transpose()*L;
 
 	L.makeCompressed();
-	
+
 	linearSolver.compute(L);
-	
-	
+
 	Eigen::VectorXd Xx = linearSolver.solve(Bx);
 	//linearSolver.compute(L);
 	Eigen::VectorXd Xy = linearSolver.solve(By);
 	//linearSolver.compute(L);
 	Eigen::VectorXd Xz = linearSolver.solve(Bz);
-	
 	//std::cout << "liner Solve!!" << std::endl;
 
 	for (Tri_Mesh::VIter VI = this->vertices_begin(); VI != this->vertices_end(); ++VI)
 	{
 		Tri_Mesh::VertexHandle VH = this->vertex_handle(VI->idx());
-
-		this->point(VH)[0] = Xx[VI->idx()];		
-		this->point(VH)[1] = Xy[VI->idx()];	
-		this->point(VH)[2] = Xz[VI->idx()];
-		//std::cout << VI->idx() << " XX " << Xx[VI->idx()] << " YY " << Xy[VI->idx()] << " ZZ " << Xz[VI->idx()] << std::endl;
+		this->point(VH)[0] = Xx[VI->idx()];
+		this->point(VH)[1] = Xy[VI->idx()];
+		this->point(VH)[2] = Xz[VI->idx()];		
 	}
 
 	this->request_face_normals();
 	this->update_normals();
 	this->release_face_normals();
 
-	std::cout << "this is "<<this->t <<" LSMESH!!!!" << std::endl;
-
+	std::cout << "this is " << this->t << " LSMESH!!!!" << std::endl;
 
 }
 
@@ -1217,7 +1228,7 @@ void Tri_Mesh::MakeLwi()
 {
 	for (Tri_Mesh::EIter EI = this->edges_begin(); EI != this->edges_end(); ++EI)
 	{
-		float tmepWi;
+		double tmepWi;
 
 		EHandle Eh = this->edge_handle(EI->idx());
 		HHandle HeH = this->halfedge_handle(Eh, 0);
@@ -1243,7 +1254,14 @@ void Tri_Mesh::MakeLwi()
 		Angle1 = PointAngle(FromVertex, ToVertex, OppositeVertex);
 		Angle2 = PointAngle(FromVertex, ToVertex, OppoOppoVertex);
 		tmepWi = (1.0 / tan(Angle1)) + (1.0 / tan(Angle2));
-
+		if (tmepWi > 1000000000)
+		{
+			tmepWi = 1000000000;
+		}
+		if (tmepWi < -1000000000)
+		{
+			tmepWi = -1000000000;
+		}
 #ifdef DEBUG
 		std::cout << EI->idx() << std::endl;
 #endif // DEBUG

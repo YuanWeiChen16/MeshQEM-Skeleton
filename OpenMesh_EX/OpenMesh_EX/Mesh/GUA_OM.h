@@ -304,11 +304,11 @@ private:
 	std::string InitIDName = "initID";
 	void cal_Qv(VertexHandle vh, std::map<int, Eigen::Vector4d>& plane);
 	double cal_Qe(EdgeHandle eh);
-OpenMesh::HPropHandleT<float> Wi;
+OpenMesh::HPropHandleT<double> Wi;
 	std::string WiName = "Wi";
-	OpenMesh::VPropHandleT<float> WH;
+	OpenMesh::VPropHandleT<double> WH;
 	std::string WHName = "WH";
-	OpenMesh::VPropHandleT<float> Ai;
+	OpenMesh::VPropHandleT<double> Ai;
 	std::string AiName = "Ai";
 };
 
