@@ -1078,7 +1078,7 @@ double PointAngle(Tri_Mesh::Point P1, Tri_Mesh::Point P2, Tri_Mesh::Point VPoint
 	return angle;
 }
 
-void Tri_Mesh::LSMesh(int t, double WL)
+void Tri_Mesh::LSMesh(int t)
 {
 	double SL = 2.0;
 	//Matrix!!!
@@ -1100,13 +1100,13 @@ void Tri_Mesh::LSMesh(int t, double WL)
 		MakeAreai();
 		//total A(only first)
 		double totalArea = this->MaketotalArea();
-		WL = 0.001*totalArea;
+		this->OutsideWL = this->InitEH0 *totalArea;
 		//WL = 5.28928;// 10*totalArea;
 		//std::cout << totalArea << std::endl;
 	}
 	else
 	{
-		WL = WL * SL;
+		this->OutsideWL = this->OutsideWL * this->InitSL;
 	}
 
 	//make matrix================================================================================================================
@@ -1135,7 +1135,7 @@ void Tri_Mesh::LSMesh(int t, double WL)
 		for (int i = 0; i < ThisA_Array_List.size(); i++)
 		{
 			//L.insert(VI->idx(), ThisA_Array_List[i]) = ((-ThisA_Array[i]) / ABigWi)*WL;
-			L.insert(VI->idx(), ThisA_Array_List[i]) = (ThisA_Array[i])*WL;			
+			L.insert(VI->idx(), ThisA_Array_List[i]) = (ThisA_Array[i])*this->OutsideWL;			
 			//std::cout << (ThisA_Array[i])*WL << "  ";
 			//Heron's Formula
 			double a = (midPoint - tempPoint[(i) % tempPoint.size()]).length();
@@ -1156,7 +1156,7 @@ void Tri_Mesh::LSMesh(int t, double WL)
 		}
 		int j = VI->idx();
 		//init B
-		L.insert(j, j) = (-1) * ABigWi * WL;		
+		L.insert(j, j) = (-1) * ABigWi * this->OutsideWL;
 		//std::cout << "total wight " << (-1) * ABigWi * WL << std::endl;
 		L.insert(j + this->n_vertices(), j) = 1.0*Whi;		
 

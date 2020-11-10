@@ -84,7 +84,7 @@ namespace OpenMesh_EX {
 	private: System::Windows::Forms::Label^ label5;
 
 
-		   //private: System::Windows::Forms::HScrollBar^ hscroll;
+			 //private: System::Windows::Forms::HScrollBar^ hscroll;
 	protected:
 
 	private:
@@ -589,7 +589,9 @@ namespace OpenMesh_EX {
 			{
 				mesh->Model_Init_Property();
 			}
-			mesh->LSMesh(mesh->t,mesh->OutsideWL);
+			mesh->InitEH0 = double(numericUpDown2->Value);
+			mesh->InitSL = double(numericUpDown3->Value);
+			mesh->LSMesh(mesh->t);
 			mesh->t += 1;
 		}
 	}
@@ -630,10 +632,23 @@ namespace OpenMesh_EX {
 		}
 	}
 
-	private: System::Void hScrollBar1_Scroll(System::Object^ sender, System::Windows::Forms::ScrollEventArgs^ e) 
+		if (e->KeyCode == Keys::D)
+		{
+			mesh->scale = mesh->scale <= 0.01 ? 0.01 : mesh->scale / 10;
+		}
+		if (e->KeyCode == Keys::A)
+		{
+			mesh->scale = mesh->scale * 10;
+		}
+		if (e->KeyCode == Keys::F)
+		{
+			mesh->saveFile();
+		}
+	}
+	private: System::Void hScrollBar1_Scroll(System::Object^ sender, System::Windows::Forms::ScrollEventArgs^ e)
 	{
-		
-		if (hScrollBar1->Value > mesh_serial.size()) 
+
+		if (hScrollBar1->Value > mesh_serial.size())
 			hScrollBar1->Value = mesh_serial.size();
 		if (mesh_serial.size() > 0)
 		{
@@ -642,7 +657,7 @@ namespace OpenMesh_EX {
 			if (&mesh_serial[index] == NULL) {
 				std::cout << "Mesh Null.\n";
 			}
-			else 
+			else
 			{
 				*mesh = mesh_serial[index];
 				mesh->Render_SolidWireframe();
@@ -654,11 +669,11 @@ namespace OpenMesh_EX {
 		}
 		Last_percent->Text = hScrollBar1->Value.ToString();
 	}
-	private: System::Void numericUpDown1_ValueChanged(System::Object^ sender, System::EventArgs^ e) 
+	private: System::Void numericUpDown1_ValueChanged(System::Object^ sender, System::EventArgs^ e)
 	{
 		SimplifyTo_percent->Text = numericUpDown1->Value.ToString();
 	}
-	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) 
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e)
 	{
 		int original_edge_size = mesh->n_edges();
 		int count = 0, tmpedge;
@@ -719,10 +734,10 @@ namespace OpenMesh_EX {
 		std::cout << "edge: " << mesh->n_edges() << "\t" << edgeCount << "\n";
 		end = clock();
 		std::cout << double(end - start) / CLOCKS_PER_SEC << " second\n";
-		
+
 		hkoglPanelControl1->Invalidate();
 		n_faces->Text = mesh->n_faces().ToString();
 		n_edges->Text = mesh->n_edges().ToString();
-	}
-};
+	};
+	};
 }

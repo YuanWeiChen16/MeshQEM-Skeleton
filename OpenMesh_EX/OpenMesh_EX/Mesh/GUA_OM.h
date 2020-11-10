@@ -256,6 +256,8 @@ public:
 	std::vector<OMT::VHandle>                  Extrme_Pt   ;
 	int t=0;
 	double OutsideWL = 1.0;
+	double InitEH0 = 0.001;
+	double InitSL = 2;
 	float scale = 1;
 	GLint MeshVAO;
 	GLint MeshVBO;
@@ -284,7 +286,7 @@ public:
 	void GPURender();
 	void CountdeltaE();
 	void simplify();
-	void LSMesh(int t, double WL);
+	void LSMesh(int t);
 	void MakeLwi();
 	void MakeAreai();
 	double MaketotalArea();
