@@ -95,8 +95,8 @@ namespace OpenMesh_EX {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			HKOGLPanel::HKCOGLPanelCameraSetting^ hkcoglPanelCameraSetting2 = (gcnew HKOGLPanel::HKCOGLPanelCameraSetting());
-			HKOGLPanel::HKCOGLPanelPixelFormat^ hkcoglPanelPixelFormat2 = (gcnew HKOGLPanel::HKCOGLPanelPixelFormat());
+			HKOGLPanel::HKCOGLPanelCameraSetting^ hkcoglPanelCameraSetting1 = (gcnew HKOGLPanel::HKCOGLPanelCameraSetting());
+			HKOGLPanel::HKCOGLPanelPixelFormat^ hkcoglPanelPixelFormat1 = (gcnew HKOGLPanel::HKCOGLPanelPixelFormat());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->fileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->loadModelToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -110,20 +110,20 @@ namespace OpenMesh_EX {
 			this->Last_percent = (gcnew System::Windows::Forms::Label());
 			this->numericUpDown1 = (gcnew System::Windows::Forms::NumericUpDown());
 			this->GroupSimplify = (gcnew System::Windows::Forms::GroupBox());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->SimplifyTo_percent = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->numericUpDown2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->numericUpDown3 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->numericUpDown2 = (gcnew System::Windows::Forms::NumericUpDown());
+			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->menuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->BeginInit();
 			this->GroupSimplify->SuspendLayout();
 			this->groupBox1->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown3))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// menuStrip1
@@ -170,19 +170,19 @@ namespace OpenMesh_EX {
 			// 
 			// hkoglPanelControl1
 			// 
-			hkcoglPanelCameraSetting2->Far = 1000;
-			hkcoglPanelCameraSetting2->Fov = 45;
-			hkcoglPanelCameraSetting2->Near = -1000;
-			hkcoglPanelCameraSetting2->Type = HKOGLPanel::HKCOGLPanelCameraSetting::CAMERATYPE::ORTHOGRAPHIC;
-			this->hkoglPanelControl1->Camera_Setting = hkcoglPanelCameraSetting2;
+			hkcoglPanelCameraSetting1->Far = 1000;
+			hkcoglPanelCameraSetting1->Fov = 45;
+			hkcoglPanelCameraSetting1->Near = -1000;
+			hkcoglPanelCameraSetting1->Type = HKOGLPanel::HKCOGLPanelCameraSetting::CAMERATYPE::ORTHOGRAPHIC;
+			this->hkoglPanelControl1->Camera_Setting = hkcoglPanelCameraSetting1;
 			this->hkoglPanelControl1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->hkoglPanelControl1->Location = System::Drawing::Point(0, 24);
 			this->hkoglPanelControl1->MaximumSize = System::Drawing::Size(613, 430);
 			this->hkoglPanelControl1->Name = L"hkoglPanelControl1";
-			hkcoglPanelPixelFormat2->Accumu_Buffer_Bits = HKOGLPanel::HKCOGLPanelPixelFormat::PIXELBITS::BITS_0;
-			hkcoglPanelPixelFormat2->Alpha_Buffer_Bits = HKOGLPanel::HKCOGLPanelPixelFormat::PIXELBITS::BITS_0;
-			hkcoglPanelPixelFormat2->Stencil_Buffer_Bits = HKOGLPanel::HKCOGLPanelPixelFormat::PIXELBITS::BITS_0;
-			this->hkoglPanelControl1->Pixel_Format = hkcoglPanelPixelFormat2;
+			hkcoglPanelPixelFormat1->Accumu_Buffer_Bits = HKOGLPanel::HKCOGLPanelPixelFormat::PIXELBITS::BITS_0;
+			hkcoglPanelPixelFormat1->Alpha_Buffer_Bits = HKOGLPanel::HKCOGLPanelPixelFormat::PIXELBITS::BITS_0;
+			hkcoglPanelPixelFormat1->Stencil_Buffer_Bits = HKOGLPanel::HKCOGLPanelPixelFormat::PIXELBITS::BITS_0;
+			this->hkoglPanelControl1->Pixel_Format = hkcoglPanelPixelFormat1;
 			this->hkoglPanelControl1->Size = System::Drawing::Size(613, 430);
 			this->hkoglPanelControl1->TabIndex = 2;
 			this->hkoglPanelControl1->Load += gcnew System::EventHandler(this, &MyForm::hkoglPanelControl1_Load);
@@ -265,6 +265,15 @@ namespace OpenMesh_EX {
 			this->GroupSimplify->TabStop = false;
 			this->GroupSimplify->Text = L"Simplification";
 			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(6, 101);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(66, 12);
+			this->label2->TabIndex = 10;
+			this->label2->Text = L"DisplayLevel";
+			// 
 			// SimplifyTo_percent
 			// 
 			this->SimplifyTo_percent->AutoSize = true;
@@ -285,17 +294,9 @@ namespace OpenMesh_EX {
 			this->label1->TabIndex = 8;
 			this->label1->Text = L"SimplifyTo";
 			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(6, 101);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(66, 12);
-			this->label2->TabIndex = 10;
-			this->label2->Text = L"DisplayLevel";
-			// 
 			// groupBox1
 			// 
+			this->groupBox1->BackColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->groupBox1->Controls->Add(this->numericUpDown3);
 			this->groupBox1->Controls->Add(this->label4);
 			this->groupBox1->Controls->Add(this->numericUpDown2);
@@ -308,14 +309,25 @@ namespace OpenMesh_EX {
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Skeleton";
 			// 
-			// label3
+			// numericUpDown3
 			// 
-			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(6, 22);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(30, 12);
-			this->label3->TabIndex = 4;
-			this->label3->Text = L"WH0";
+			this->numericUpDown3->DecimalPlaces = 3;
+			this->numericUpDown3->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 196608 });
+			this->numericUpDown3->Location = System::Drawing::Point(21, 82);
+			this->numericUpDown3->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10, 0, 0, 0 });
+			this->numericUpDown3->Name = L"numericUpDown3";
+			this->numericUpDown3->Size = System::Drawing::Size(140, 22);
+			this->numericUpDown3->TabIndex = 7;
+			this->numericUpDown3->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Location = System::Drawing::Point(8, 66);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(18, 12);
+			this->label4->TabIndex = 6;
+			this->label4->Text = L"SL";
 			// 
 			// numericUpDown2
 			// 
@@ -328,25 +340,14 @@ namespace OpenMesh_EX {
 			this->numericUpDown2->TabIndex = 5;
 			this->numericUpDown2->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
-			// label4
+			// label3
 			// 
-			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(8, 66);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(18, 12);
-			this->label4->TabIndex = 6;
-			this->label4->Text = L"SL";
-			// 
-			// numericUpDown3
-			// 
-			this->numericUpDown3->DecimalPlaces = 3;
-			this->numericUpDown3->Increment = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 196608 });
-			this->numericUpDown3->Location = System::Drawing::Point(21, 82);
-			this->numericUpDown3->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 10, 0, 0, 0 });
-			this->numericUpDown3->Name = L"numericUpDown3";
-			this->numericUpDown3->Size = System::Drawing::Size(140, 22);
-			this->numericUpDown3->TabIndex = 7;
-			this->numericUpDown3->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->label3->AutoSize = true;
+			this->label3->Location = System::Drawing::Point(6, 22);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(30, 12);
+			this->label3->TabIndex = 4;
+			this->label3->Text = L"WH0";
 			// 
 			// MyForm
 			// 
@@ -367,8 +368,8 @@ namespace OpenMesh_EX {
 			this->GroupSimplify->PerformLayout();
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown3))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
