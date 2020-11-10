@@ -550,7 +550,7 @@ namespace OpenMesh_EX {
 
 		if (ReadFile(filename, mesh))
 			std::cout << filename << std::endl;
-		//mesh_serial.clear();
+		mesh_serial.clear();
 		//mesh_serial.push_back(*mesh);
 
 		Allcount = 100;
@@ -612,7 +612,10 @@ namespace OpenMesh_EX {
 				else std::cout << "Cannot Simplify.\n";
 			}
 		}
-				
+		if (e->KeyCode == Keys::K)
+		{
+			mesh_serial.push_back(*mesh);
+		}
 		if (e->KeyCode == Keys::D)
 		{
 		   mesh->scale = mesh->scale <= 0.01 ? 0.01 : mesh->scale / 10;

@@ -203,6 +203,13 @@ D:\GameDesign\DigitalMesh\project1\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(1371,
 D:\GameDesign\DigitalMesh\project1\OpenMesh_EX\OpenMesh-5.2\src\OpenMesh\Core\Mesh\CirculatorsT.hh(567): message : 請參閱 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::FaceHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toFaceHandle,0}>::handle' 的宣告
 D:\GameDesign\DigitalMesh\project1\OpenMesh_EX\OpenMesh_EX\Mesh\GUA_OM.cpp(1375,1): warning C4996: 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::FaceHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toFaceHandle,0}>::operator OpenMesh::FaceHandle': Implicit casts of iterators are unsafe. Use dereferencing operators -> and * instead.
 D:\GameDesign\DigitalMesh\project1\OpenMesh_EX\OpenMesh-5.2\src\OpenMesh\Core\Mesh\CirculatorsT.hh(578): message : 請參閱 'OpenMesh::Iterators::GenericCirculatorT_DEPRECATED<OpenMesh::PolyConnectivity::This,OpenMesh::ArrayKernel::VertexHandle,OpenMesh::ArrayKernel::FaceHandle,{&OpenMesh::Iterators::GenericCirculatorBaseT<OpenMesh::PolyConnectivity::This>::toFaceHandle,0}>::operator OpenMesh::FaceHandle' 的宣告
+  MyForm.cpp
+D:\GameDesign\DigitalMesh\project1\OpenMesh_EX\OpenMesh_EX\MyForm.h(621,32): warning C4244: '=': 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+D:\GameDesign\DigitalMesh\project1\OpenMesh_EX\OpenMesh_EX\MyForm.h(636,26): warning C4018: '>': signed/unsigned 不相符
+D:\GameDesign\DigitalMesh\project1\OpenMesh_EX\OpenMesh_EX\MyForm.h(698,25): warning C4018: '<': signed/unsigned 不相符
+D:\GameDesign\DigitalMesh\project1\OpenMesh_EX\OpenMesh_EX\MyForm.h(664,18): warning C4101: 'tmpedge': 未參考的區域變數
+D:\GameDesign\DigitalMesh\project1\OpenMesh_EX\OpenMesh_EX\MyForm.cpp(6,1): warning C4829: 函式 main 的參數可能不正確。請考慮 'int main(Platform::Array<Platform::String^>^ argv)'
+  正在產生程式碼...
 D:\GameDesign\DigitalMesh\project1\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(307): warning C4793: 'Eigen::internal::pload<__m128d>': 函式會編譯成機器碼:
   	找到受控碼中不支援的內建
 D:\GameDesign\DigitalMesh\project1\OpenMesh_EX\eigen-3.3.7\Eigen\src\Core\arch\SSE\PacketMath.h(336): warning C4793: 'Eigen::internal::ploadu<__m128d>': 函式會編譯成機器碼:
