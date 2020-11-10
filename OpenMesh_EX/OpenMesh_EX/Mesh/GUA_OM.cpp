@@ -624,6 +624,10 @@ void Tri_Mesh::Model_Init_Property()
 	this->add_property(this->WH, WHName);
 	this->add_property(this->Ai, AiName);
 	deleteEdge.clear();
+	points.clear();
+	pts.clear();
+	pair.clear();
+	Errorprority.clear();
 }
 
 bool Tri_Mesh::simplification(double& angleT, double& matrixT, double& vectorT)

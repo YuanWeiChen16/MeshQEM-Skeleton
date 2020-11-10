@@ -77,6 +77,9 @@ namespace OpenMesh_EX {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::NumericUpDown^ numericUpDown3;
 	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::GroupBox^ groupBox2;
+	private: System::Windows::Forms::Label^ n_edges;
+	private: System::Windows::Forms::Label^ n_faces;
 
 
 		   //private: System::Windows::Forms::HScrollBar^ hscroll;
@@ -118,12 +121,16 @@ namespace OpenMesh_EX {
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->numericUpDown2 = (gcnew System::Windows::Forms::NumericUpDown());
 			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->n_faces = (gcnew System::Windows::Forms::Label());
+			this->n_edges = (gcnew System::Windows::Forms::Label());
 			this->menuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->BeginInit();
 			this->GroupSimplify->SuspendLayout();
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown3))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->BeginInit();
+			this->groupBox2->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// menuStrip1
@@ -258,7 +265,7 @@ namespace OpenMesh_EX {
 			this->GroupSimplify->Controls->Add(this->numericUpDown1);
 			this->GroupSimplify->Controls->Add(this->hScrollBar1);
 			this->GroupSimplify->Controls->Add(this->Last_percent);
-			this->GroupSimplify->Location = System::Drawing::Point(625, 49);
+			this->GroupSimplify->Location = System::Drawing::Point(625, 27);
 			this->GroupSimplify->Name = L"GroupSimplify";
 			this->GroupSimplify->Size = System::Drawing::Size(200, 141);
 			this->GroupSimplify->TabIndex = 8;
@@ -302,7 +309,7 @@ namespace OpenMesh_EX {
 			this->groupBox1->Controls->Add(this->numericUpDown2);
 			this->groupBox1->Controls->Add(this->label3);
 			this->groupBox1->Controls->Add(this->button1);
-			this->groupBox1->Location = System::Drawing::Point(625, 271);
+			this->groupBox1->Location = System::Drawing::Point(625, 286);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Size = System::Drawing::Size(200, 156);
 			this->groupBox1->TabIndex = 9;
@@ -349,11 +356,42 @@ namespace OpenMesh_EX {
 			this->label3->TabIndex = 4;
 			this->label3->Text = L"WH0";
 			// 
+			// groupBox2
+			// 
+			this->groupBox2->BackColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->groupBox2->Controls->Add(this->n_edges);
+			this->groupBox2->Controls->Add(this->n_faces);
+			this->groupBox2->Location = System::Drawing::Point(625, 180);
+			this->groupBox2->Name = L"groupBox2";
+			this->groupBox2->Size = System::Drawing::Size(200, 90);
+			this->groupBox2->TabIndex = 10;
+			this->groupBox2->TabStop = false;
+			this->groupBox2->Text = L"MeshStatus";
+			// 
+			// n_faces
+			// 
+			this->n_faces->AutoSize = true;
+			this->n_faces->Location = System::Drawing::Point(21, 22);
+			this->n_faces->Name = L"n_faces";
+			this->n_faces->Size = System::Drawing::Size(28, 12);
+			this->n_faces->TabIndex = 0;
+			this->n_faces->Text = L"faces";
+			// 
+			// n_edges
+			// 
+			this->n_edges->AutoSize = true;
+			this->n_edges->Location = System::Drawing::Point(21, 46);
+			this->n_edges->Name = L"n_edges";
+			this->n_edges->Size = System::Drawing::Size(31, 12);
+			this->n_edges->TabIndex = 1;
+			this->n_edges->Text = L"edges";
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 12);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(825, 454);
+			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->GroupSimplify);
 			this->Controls->Add(this->hkoglPanelControl1);
@@ -370,6 +408,8 @@ namespace OpenMesh_EX {
 			this->groupBox1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown3))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->EndInit();
+			this->groupBox2->ResumeLayout(false);
+			this->groupBox2->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -499,6 +539,8 @@ namespace OpenMesh_EX {
 		//mesh->testBox();
 		//mesh->testBox();
 		hkoglPanelControl1->Invalidate();
+		n_faces->Text = mesh->n_faces().ToString();
+		n_edges->Text = mesh->n_edges().ToString();
 	}
 	private: System::Void saveModelToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e)
 	{
@@ -560,8 +602,11 @@ namespace OpenMesh_EX {
 			{
 				*mesh = mesh_serial[index];
 				mesh->Render_SolidWireframe();
+				n_faces->Text = mesh->n_faces().ToString();
+				n_edges->Text = mesh->n_edges().ToString();
 			}
 			hkoglPanelControl1->Invalidate();
+
 		}
 		Last_percent->Text = hScrollBar1->Value.ToString();
 	}
@@ -632,7 +677,8 @@ namespace OpenMesh_EX {
 		std::cout << double(end - start) / CLOCKS_PER_SEC << " second\n";
 		
 		hkoglPanelControl1->Invalidate();
-		
+		n_faces->Text = mesh->n_faces().ToString();
+		n_edges->Text = mesh->n_edges().ToString();
 	}
 };
 }
