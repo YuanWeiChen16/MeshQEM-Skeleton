@@ -100,8 +100,8 @@ namespace OpenMesh_EX {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			HKOGLPanel::HKCOGLPanelCameraSetting^  hkcoglPanelCameraSetting1 = (gcnew HKOGLPanel::HKCOGLPanelCameraSetting());
-			HKOGLPanel::HKCOGLPanelPixelFormat^  hkcoglPanelPixelFormat1 = (gcnew HKOGLPanel::HKCOGLPanelPixelFormat());
+			HKOGLPanel::HKCOGLPanelCameraSetting^ hkcoglPanelCameraSetting1 = (gcnew HKOGLPanel::HKCOGLPanelCameraSetting());
+			HKOGLPanel::HKCOGLPanelPixelFormat^ hkcoglPanelPixelFormat1 = (gcnew HKOGLPanel::HKCOGLPanelPixelFormat());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->fileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->loadModelToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -330,6 +330,7 @@ namespace OpenMesh_EX {
 			this->numericUpDown3->Size = System::Drawing::Size(140, 22);
 			this->numericUpDown3->TabIndex = 7;
 			this->numericUpDown3->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->numericUpDown3->ValueChanged += gcnew System::EventHandler(this, &MyForm::numericUpDown3_ValueChanged);
 			// 
 			// label4
 			// 
@@ -349,6 +350,7 @@ namespace OpenMesh_EX {
 			this->numericUpDown2->Size = System::Drawing::Size(140, 22);
 			this->numericUpDown2->TabIndex = 5;
 			this->numericUpDown2->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->numericUpDown2->ValueChanged += gcnew System::EventHandler(this, &MyForm::numericUpDown2_ValueChanged);
 			// 
 			// label3
 			// 
@@ -630,20 +632,6 @@ namespace OpenMesh_EX {
 		   mesh->saveFile();
 		}
 	}
-
-		if (e->KeyCode == Keys::D)
-		{
-			mesh->scale = mesh->scale <= 0.01 ? 0.01 : mesh->scale / 10;
-		}
-		if (e->KeyCode == Keys::A)
-		{
-			mesh->scale = mesh->scale * 10;
-		}
-		if (e->KeyCode == Keys::F)
-		{
-			mesh->saveFile();
-		}
-	}
 	private: System::Void hScrollBar1_Scroll(System::Object^ sender, System::Windows::Forms::ScrollEventArgs^ e)
 	{
 
@@ -738,5 +726,15 @@ namespace OpenMesh_EX {
 		n_faces->Text = mesh->n_faces().ToString();
 		n_edges->Text = mesh->n_edges().ToString();
 	};
-	};
+	private: System::Void numericUpDown2_ValueChanged(System::Object^ sender, System::EventArgs^ e) 
+	{
+		mesh->InitEH0 = Decimal::ToDouble(numericUpDown2->Value);
+		
+
+	}
+	private: System::Void numericUpDown3_ValueChanged(System::Object^ sender, System::EventArgs^ e)
+	{
+		mesh->InitSL = Decimal::ToDouble(numericUpDown3->Value);
+	}
+};
 }
