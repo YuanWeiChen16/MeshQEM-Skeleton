@@ -1,7 +1,10 @@
 # MeshQEM-Skeleton
 
 ## 簡化3D模型效果
-### 使用海神波賽頓模型 56112面
+### 使用海神波賽頓模型 原始56112面
+
+#### 整體簡化
+https://github.com/YuanWeiChen16/MeshQEM-Skeleton/assets/46083885/1f9aad76-872c-472f-aefb-e02a996db243
 #### 上半身特寫
 https://github.com/YuanWeiChen16/MeshQEM-Skeleton/assets/46083885/bef21974-78dd-49b9-9e79-10fff018c901
 #### 頭部特寫
